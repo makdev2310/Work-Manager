@@ -13,10 +13,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/round_item_staff_avatar"
             android:layout_width="160dp"
             android:layout_height="160dp"
+            android:src="@color/black"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
