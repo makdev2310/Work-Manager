@@ -1,8 +1,11 @@
 package Models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Date;
 
-public class Payroll {
+public class Payroll implements Parcelable {
     String _id;
     String staff_id;
     float wage;
@@ -10,6 +13,28 @@ public class Payroll {
     int dayoff_count;
     String detail;
     Date create_at;
+
+    protected Payroll(Parcel in) {
+        _id = in.readString();
+        staff_id = in.readString();
+        wage = in.readFloat();
+        role = in.readString();
+        dayoff_count = in.readInt();
+        detail = in.readString();
+        create_at = (java.util.Date) in.readSerializable();
+    }
+
+    public static final Creator<Payroll> CREATOR = new Creator<Payroll>() {
+        @Override
+        public Payroll createFromParcel(Parcel in) {
+            return new Payroll(in);
+        }
+
+        @Override
+        public Payroll[] newArray(int size) {
+            return new Payroll[size];
+        }
+    };
 
     public void setStaff_id(String staff_id) {
         this.staff_id = staff_id;
@@ -66,5 +91,21 @@ public class Payroll {
         this.dayoff_count = dayoff_count;
         this.detail = detail;
         this.create_at = create_at;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(_id);
+        parcel.writeString(staff_id);
+        parcel.writeFloat(wage);
+        parcel.writeString(role);
+        parcel.writeInt(dayoff_count);
+        parcel.writeString(detail);
+        parcel.writeSerializable(create_at);
     }
 }

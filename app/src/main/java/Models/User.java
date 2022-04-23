@@ -1,8 +1,11 @@
 package Models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Date;
 
-public class User {
+public class User implements Parcelable {
     String _id;
     String username;
     String password;
@@ -35,6 +38,34 @@ public class User {
         this.avatar = avatar;
         this.create_at = create_at;
     }
+
+    protected User(Parcel in) {
+        _id = in.readString();
+        username = in.readString();
+        password = in.readString();
+        email = in.readString();
+        address = in.readString();
+        cccd = in.readString();
+        fullname = in.readString();
+        phoneNumber = in.readLong();
+        role = in.readString();
+        maxDateOff = in.readInt();
+        gender = in.readString();
+        isBoss = in.readByte() != 0;
+        avatar = in.readString();
+    }
+
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
 
     public void set_id(String _id) {
         this._id = _id;
@@ -154,6 +185,28 @@ public class User {
 
     public Date getCreate_at() {
         return create_at;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(_id);
+        parcel.writeString(username);
+        parcel.writeString(password);
+        parcel.writeString(email);
+        parcel.writeString(address);
+        parcel.writeString(cccd);
+        parcel.writeString(fullname);
+        parcel.writeLong(phoneNumber);
+        parcel.writeString(role);
+        parcel.writeInt(maxDateOff);
+        parcel.writeString(gender);
+        parcel.writeByte((byte) (isBoss ? 1 : 0));
+        parcel.writeString(avatar);
     }
 }
 

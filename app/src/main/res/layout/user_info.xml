@@ -26,7 +26,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/user_info_avatar"
+                    android:id="@+id/payrolldetail_ivAvatar"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:src="@color/black"
@@ -69,7 +69,7 @@
 
 
                     <TextView
-                        android:id="@+id/user_info_manv"
+                        android:id="@+id/payrolldetail_tvStaffName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -84,7 +84,7 @@
 
 
                     <TextView
-                        android:id="@+id/txt2"
+                        android:id="@+id/payrolldetail_tv1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
@@ -93,10 +93,10 @@
                         android:textSize="25sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/user_info_manv" />
+                        app:layout_constraintTop_toBottomOf="@+id/payrolldetail_tvStaffName" />
 
                     <TextView
-                        android:id="@+id/user_info_ten"
+                        android:id="@+id/payrolldetail_tvWage"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -105,11 +105,11 @@
                         android:textColor="@color/black"
                         android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/txt2"
-                        app:layout_constraintTop_toBottomOf="@+id/user_info_manv" />
+                        app:layout_constraintStart_toEndOf="@+id/payrolldetail_tv1"
+                        app:layout_constraintTop_toBottomOf="@+id/payrolldetail_tvStaffName" />
 
                     <TextView
-                        android:id="@+id/txt3"
+                        android:id="@+id/payrolldetail_tv2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
@@ -118,9 +118,9 @@
                         android:textSize="25sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/user_info_ten" />
+                        app:layout_constraintTop_toBottomOf="@+id/payrolldetail_tvWage" />
                     <TextView
-                        android:id="@+id/user_info_gioitinh"
+                        android:id="@+id/payrolldetail_tvRole"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -129,10 +129,10 @@
                         android:textColor="@color/black"
                         android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/txt3"
-                        app:layout_constraintTop_toBottomOf="@+id/user_info_ten" />
+                        app:layout_constraintStart_toEndOf="@+id/payrolldetail_tv2"
+                        app:layout_constraintTop_toBottomOf="@+id/payrolldetail_tvWage" />
                     <TextView
-                        android:id="@+id/txt4"
+                        android:id="@+id/payrolldetail_tv3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
@@ -141,9 +141,9 @@
                         android:textSize="25sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/user_info_gioitinh" />
+                        app:layout_constraintTop_toBottomOf="@+id/payrolldetail_tvRole" />
                     <TextView
-                        android:id="@+id/user_info_ngaysinh"
+                        android:id="@+id/payrolldetail_tvCoefficient"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -152,10 +152,10 @@
                         android:textColor="@color/black"
                         android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/txt4"
-                        app:layout_constraintTop_toBottomOf="@+id/user_info_gioitinh" />
+                        app:layout_constraintStart_toEndOf="@+id/payrolldetail_tv3"
+                        app:layout_constraintTop_toBottomOf="@+id/payrolldetail_tvRole" />
                     <TextView
-                        android:id="@+id/txt5"
+                        android:id="@+id/payrolldetail_tv4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
@@ -164,9 +164,9 @@
                         android:textSize="25sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/user_info_ngaysinh" />
+                        app:layout_constraintTop_toBottomOf="@+id/payrolldetail_tvCoefficient" />
                     <TextView
-                        android:id="@+id/user_info_cccd"
+                        android:id="@+id/payrolldetail_tvDayoffs"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -175,10 +175,10 @@
                         android:textColor="@color/black"
                         android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/txt5"
-                        app:layout_constraintTop_toBottomOf="@+id/user_info_ngaysinh" />
+                        app:layout_constraintStart_toEndOf="@+id/payrolldetail_tv4"
+                        app:layout_constraintTop_toBottomOf="@+id/payrolldetail_tvCoefficient" />
                     <TextView
-                        android:id="@+id/txt6"
+                        android:id="@+id/payrolldetail_tv5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
@@ -187,9 +187,9 @@
                         android:textSize="25sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/user_info_cccd" />
+                        app:layout_constraintTop_toBottomOf="@+id/payrolldetail_tvDayoffs" />
                     <TextView
-                        android:id="@+id/user_info_sodienthoai"
+                        android:id="@+id/payrolldetail_tvCreateAt"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -198,10 +198,10 @@
                         android:textColor="@color/black"
                         android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/txt6"
-                        app:layout_constraintTop_toBottomOf="@+id/user_info_cccd" />
+                        app:layout_constraintStart_toEndOf="@+id/payrolldetail_tv5"
+                        app:layout_constraintTop_toBottomOf="@+id/payrolldetail_tvDayoffs" />
                     <TextView
-                        android:id="@+id/txt7"
+                        android:id="@+id/payrolldetail_tv6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
@@ -210,9 +210,9 @@
                         android:textSize="25sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/user_info_sodienthoai" />
+                        app:layout_constraintTop_toBottomOf="@+id/payrolldetail_tvCreateAt" />
                     <TextView
-                        android:id="@+id/user_info_diachi"
+                        android:id="@+id/payrolldetail_tvDetail"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -221,8 +221,8 @@
                         android:textColor="@color/black"
                         android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/txt7"
-                        app:layout_constraintTop_toBottomOf="@+id/user_info_sodienthoai" />
+                        app:layout_constraintStart_toEndOf="@+id/payrolldetail_tv6"
+                        app:layout_constraintTop_toBottomOf="@+id/payrolldetail_tvCreateAt" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

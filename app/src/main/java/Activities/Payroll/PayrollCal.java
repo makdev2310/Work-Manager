@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +20,19 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.workmanager.R;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import Models.User;
+import Services.CreateConnection;
 import Services.PlaceHolder;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -38,6 +45,7 @@ public class PayrollCal extends AppCompatActivity {
     private RecyclerView recyclerView;
     private StaffListAdapter adapter;
     public PlaceHolder placeHolder;
+    private TextView tvAlertNoStaff;
     ArrayList<Staff> staffs = new ArrayList<>();
 
     @Override
@@ -51,12 +59,6 @@ public class PayrollCal extends AppCompatActivity {
     }
 
     void getData() {
-        String base_Url = "http://10.0.2.2:3000/";
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(base_Url)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        placeHolder = retrofit.create(PlaceHolder.class);
         //Loading Staffs
         Call<List<User>> call = placeHolder.getUsers();
         call.enqueue(new Callback<List<User>>() {
@@ -71,11 +73,17 @@ public class PayrollCal extends AppCompatActivity {
                 for (User user: users) {
                     staffs.add(new Staff(user));
                 }
-                adapter.notifyDataSetChanged();
+                if(staffs.isEmpty()){
+                    tvAlertNoStaff.setVisibility(View.VISIBLE);
+                }else{
+                    tvAlertNoStaff.setVisibility(View.GONE);
+                    adapter.notifyDataSetChanged();
+                }
             }
             @Override
             public void onFailure(@NonNull Call<List<User>> call, Throwable t) {
-                Toast.makeText(PayrollCal.this, "error", Toast.LENGTH_LONG).show();
+                Toast.makeText(PayrollCal.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                tvAlertNoStaff.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -83,6 +91,8 @@ public class PayrollCal extends AppCompatActivity {
     void init(){
         findViewById();
         setUpAdapter();
+        CreateConnection conn = new CreateConnection("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTJmNmQyZTdiODM0NDMyZjBiZDkxNSIsImlhdCI6MTY0OTYwNDMwNiwiZXhwIjoxNjUyMTk2MzA2fQ.LNp_gNF4rn4N5qvX_MQVYWhHhSISCHhNRInSqLx0r3s");
+        placeHolder = conn.CreatePlaceHolder();
     }
 
     void findViewById(){
@@ -90,6 +100,7 @@ public class PayrollCal extends AppCompatActivity {
         btnUnselect = findViewById(R.id.payrollcal_btnUnselect);
         btnSelectALl = findViewById(R.id.payrollcal_btnSelectAll);
         recyclerView = findViewById(R.id.payrollcal_RecyclerView);
+        tvAlertNoStaff = findViewById(R.id.payroll_tvAlertNoStaff);
     }
 
     void setUpAdapter(){
@@ -106,7 +117,7 @@ public class PayrollCal extends AppCompatActivity {
     }
 
     void btnUnselect(){
-        btnPayrollCal.setOnClickListener(new View.OnClickListener() {
+        btnUnselect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 for (Staff staff: staffs) {
@@ -118,7 +129,7 @@ public class PayrollCal extends AppCompatActivity {
     }
 
     void btnPayrollCal(){
-        btnUnselect.setOnClickListener(new View.OnClickListener() {
+        btnPayrollCal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ArrayList<User> users = new ArrayList<>();
@@ -127,9 +138,14 @@ public class PayrollCal extends AppCompatActivity {
                         users.add(staff);
                     }
                 }
-
+                if(users.isEmpty()){
+                    Toast.makeText(PayrollCal.this, "Chưa chọn nhân viên nào!", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 Intent intent = new Intent(PayrollCal.this, PayrollCheck.class);
-                intent.putExtra("staff_list", (Parcelable) users);
+                Bundle bundle = new Bundle();
+                bundle.putParcelableArrayList("staff_list", users);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -167,7 +183,9 @@ public class PayrollCal extends AppCompatActivity {
         public void onBindViewHolder(@NonNull StaffListAdapter.ViewHolder holder, int position) {
             Staff staff = staffs.get(position);
             holder.tv_fullName.setText(staff.getFullname());
-            Picasso.get().load("" + staff.getAvatar()).into(holder.iv_avatar);
+            Picasso.get().load("https://dkhoa-work-lovers-2.herokuapp.com/" + staff.getAvatar())
+                    .error(R.drawable.ic_error)
+                    .into(holder.iv_avatar);
             if(staff.isCheck){
                 holder.iv_iconCheck.setVisibility(View.VISIBLE);
             }else{
@@ -215,6 +233,7 @@ public class PayrollCal extends AppCompatActivity {
                     user.getAvatar(),
                     user.getCreate_at()
             );
+            this.set_id(user.get_id());
             this.isCheck = false;
         }
 
