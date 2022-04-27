@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.workmanager.R;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
@@ -76,6 +78,7 @@ public class PayrollCheck extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //confirm + send alarm
+                sendNotification("Bang luong", payrolls.get(0));
                 Intent intent = new Intent(PayrollCheck.this, PayrollConfirm.class);
                 intent.putExtra("payrolls_count", payrolls.size());
                 startActivity(intent);
@@ -114,6 +117,56 @@ public class PayrollCheck extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(PayrollCheck.this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
+    }
+
+    private void sendNotification(String Title, Payroll payroll) {
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
+            if (!task.isSuccessful()) {
+                return;
+            }
+            // Get new FCM registration token
+            String token = task.getResult();
+            CreateConnection conn = new CreateConnection("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTJmNmQyZTdiODM0NDMyZjBiZDkxNSIsImlhdCI6MTY0OTYwNDMwNiwiZXhwIjoxNjUyMTk2MzA2fQ.LNp_gNF4rn4N5qvX_MQVYWhHhSISCHhNRInSqLx0r3s");
+            PlaceHolder placeHolder = conn.CreatePlaceHolder();
+            FirebaseNotification notification = new FirebaseNotification(new NotificationData(Title, payroll), token);
+            Call<Void> call = placeHolder.sendNotification(notification);
+            call.enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    if(!response.isSuccessful()){
+                        Toast.makeText(getApplicationContext(), "code: "+ response.code(), Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    Toast.makeText(getApplicationContext(), "Gửi thành công!", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onFailure(Call<Void> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                    Log.d("response", t.getMessage());
+                }
+            });
+        });
+    }
+
+    public static class FirebaseNotification {
+        NotificationData notificationData;
+        String tokenDevice;
+
+        public FirebaseNotification(NotificationData notificationData, String tokenDevice) {
+            this.notificationData = notificationData;
+            this.tokenDevice = tokenDevice;
+        }
+    }
+
+    static class NotificationData {
+        String title;
+        Payroll content;
+
+        public NotificationData(String title, Payroll content) {
+            this.title = title;
+            this.content = content;
+        }
     }
 
     public class PayrollInfoNeeded {

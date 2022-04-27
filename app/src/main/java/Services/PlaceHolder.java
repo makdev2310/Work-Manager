@@ -17,4 +17,7 @@ public interface PlaceHolder {
 
     @POST("api/payrolls/create")
     Call<List<Payroll>> createPayrolls(@Body PayrollCheck.PayrollInfoNeeded data);
+
+    @POST("api/notifications/firebase/notification")
+    Call<Void> sendNotification(@Body PayrollCheck.FirebaseNotification notification);
 }
