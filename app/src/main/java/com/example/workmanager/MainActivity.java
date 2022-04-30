@@ -10,7 +10,7 @@ import android.view.View;
 import Activities.Payroll.PayrollCal;
 
 public class MainActivity extends AppCompatActivity {
-    ConstraintLayout constraintPayroll;
+    ConstraintLayout constraintPayroll, constraintLUserInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     void findViewById(){
         constraintPayroll = findViewById(R.id.home_Payroll);
+        constraintLUserInfo = findViewById(R.id.home_UserInfo);
     }
 
     void btnHandler(){

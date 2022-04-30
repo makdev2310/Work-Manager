@@ -1,7 +1,6 @@
 package Activities.Payroll;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,11 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.workmanager.R;
 import com.squareup.picasso.Picasso;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 import Models.Payroll;
 import Models.User;
@@ -43,13 +38,13 @@ public class PayrollDetail extends AppCompatActivity {
     }
 
     void findViewById(){
-        tvStaffName = findViewById(R.id.payrolldetail_tvStaffName);
-        tvWage = findViewById(R.id.payrolldetail_tvWage);
-        tvRole = findViewById(R.id.payrolldetail_tvRole);
-        tvCoefficient = findViewById(R.id.payrolldetail_tvCoefficient);
-        tvDayoffs = findViewById(R.id.payrolldetail_tvDayoffs);
-        tvCreateAt = findViewById(R.id.payrolldetail_tvCreateAt);
-        tvDetail = findViewById(R.id.payrolldetail_tvDetail);
+        tvStaffName = findViewById(R.id.user_info_manv);
+        tvWage = findViewById(R.id.user_info_ten);
+        tvRole = findViewById(R.id.user_info_gioitinh);
+        tvCoefficient = findViewById(R.id.user_info_ngaysinh);
+        tvDayoffs = findViewById(R.id.user_info_cccd);
+        tvCreateAt = findViewById(R.id.user_info_sdt);
+        tvDetail = findViewById(R.id.user_info_diachi);
         btnEdit = findViewById(R.id.payrolldetail_btnEdit);
         ivAvatar = findViewById(R.id.payrolldetail_ivAvatar);
     }
@@ -61,7 +56,7 @@ public class PayrollDetail extends AppCompatActivity {
         if(user == null || payroll == null){
             payroll = this.getIntent().getParcelableExtra("payroll_notification");
             tvStaffName.setVisibility(View.GONE);
-            TextView role = findViewById(R.id.payrolldetail_tv2);
+            TextView role = findViewById(R.id.user_info_txt3);
             role.setVisibility(View.GONE);
             tvRole.setVisibility(View.GONE);
             ivAvatar.setVisibility(View.INVISIBLE);

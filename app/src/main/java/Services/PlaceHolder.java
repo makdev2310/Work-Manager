@@ -20,4 +20,7 @@ public interface PlaceHolder {
 
     @POST("api/notifications/firebase/notification")
     Call<Void> sendNotification(@Body PayrollCheck.FirebaseNotification notification);
+
+    @GET("api/users/profile")
+    Call<User> getProfile();
 }

@@ -3,8 +3,6 @@ package Activities.Payroll;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,24 +18,17 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.workmanager.R;
-import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import Models.User;
 import Services.CreateConnection;
 import Services.PlaceHolder;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PayrollCal extends AppCompatActivity {
 
@@ -209,7 +200,7 @@ public class PayrollCal extends AppCompatActivity {
                 super(itemView);
                 iv_avatar = itemView.findViewById(R.id.round_item_staff_avatar);
                 tv_fullName = itemView.findViewById(R.id.round_item_staff_fullname);
-                iv_iconCheck = itemView.findViewById(R.id.round_item_staff_CheckIcon);
+                iv_iconCheck = itemView.findViewById(R.id.user_info_checkIcon);
             }
         }
     }

@@ -21,7 +21,7 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
-            android:id="@+id/round_item_staff_CheckIcon"
+            android:id="@+id/user_info_checkIcon"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:visibility="gone"
