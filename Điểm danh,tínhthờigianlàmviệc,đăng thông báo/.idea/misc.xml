@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/LENOVO/Desktop/DOAN/app/src/main/res/drawable/ellipse_12.xml" value="0.2125" />
+        <entry key="..\:/Users/LENOVO/Desktop/DOAN/app/src/main/res/drawable/ellipse_17.xml" value="0.2105" />
+        <entry key="..\:/Users/LENOVO/Desktop/DOAN/app/src/main/res/drawable/ellipse_18.xml" value="0.22" />
+        <entry key="..\:/Users/LENOVO/Desktop/DOAN/app/src/main/res/drawable/ellipse_24.xml" value="0.1565" />
+        <entry key="..\:/Users/LENOVO/Desktop/DOAN/app/src/main/res/drawable/ellipse_3.xml" value="0.1565" />
+        <entry key="..\:/Users/LENOVO/Desktop/DOAN/app/src/main/res/drawable/ellipse_4.xml" value="0.1565" />
+        <entry key="..\:/Users/LENOVO/Desktop/DOAN/app/src/main/res/drawable/ellipse_5.xml" value="0.1565" />
+        <entry key="..\:/Users/LENOVO/Desktop/DOAN/app/src/main/res/drawable/ellipse_6.xml" value="0.137" />
+        <entry key="..\:/Users/LENOVO/Desktop/DOAN/app/src/main/res/drawable/rectangle_3.xml" value="0.1855" />
+        <entry key="..\:/Users/LENOVO/Desktop/DOAN/app/src/main/res/drawable/rectangle_4.xml" value="0.1565" />
+        <entry key="..\:/Users/LENOVO/Desktop/DOAN/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/LENOVO/Desktop/DOAN/app/src/main/res/layout/activity_thongbao.xml" value="0.2" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
