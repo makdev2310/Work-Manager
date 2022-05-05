@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">XinNghiDuyetDon</string>
+    <string name="chi_ti_t">Chi tiết</string>
+    <string name="xin_ngh_ph_">Xin nghỉ phép</string>
+    <string name="g_i">Gửi</string>
+    <string name="back">Quay lại</string>
+    <string name="t_ng_s_ng_y">Tổng số ngày nghỉ:</string>
+    <string name="l_do_ghi_ch">Lý do/Ghi chú:</string>
+    <string name="nh_p_l_do_x">Nhập lý do xin nghỉ phép ...</string>
+</resources>
