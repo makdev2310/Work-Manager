@@ -12,9 +12,9 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">#00E109</item>
     </style>
-    <style name="t_ng_s_ng_y">
+    <style name="button">
         <item name="android:textSize">20sp</item>
-        <item name="android:textColor">#C2C2C2</item>
+        <item name="android:textColor">#C0C0C0</item>
     </style>
     <style name="l_do_ghi_ch">
         <item name="android:textSize">20sp</item>
