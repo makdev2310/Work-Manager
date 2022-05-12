@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import Activities.Payroll.PayrollCal;
+import Activities.User.UserInfo;
 import SignIn_SignUp.SaveSharedPreference;
 import SignIn_SignUp.loginActivity;
 
@@ -49,6 +50,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, loginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        constraintLUserInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, UserInfo.class);
                 startActivity(intent);
             }
         });
