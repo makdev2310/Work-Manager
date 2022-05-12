@@ -20,7 +20,7 @@ public class CreateConnection {
                 return chain.proceed(newRequest);
             }
         }).build();
-        String base_Url = "http://10.0.2.2:3000/";
+        String base_Url = "https://dkhoa-work-lovers-2.herokuapp.com/";
         retrofit = new Retrofit.Builder()
                 .client(client)
                 .baseUrl(base_Url)

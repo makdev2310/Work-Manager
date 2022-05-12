@@ -4,14 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
 import Activities.Payroll.PayrollCal;
+import SignIn_SignUp.SaveSharedPreference;
 import SignIn_SignUp.loginActivity;
 
 public class MainActivity extends AppCompatActivity {
     ConstraintLayout constraintPayroll, constraintLUserInfo, constraintLogin;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,5 +52,20 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    void LogOut() {
+        if (SaveSharedPreference.getUserName(this).isEmpty()) {
+            Intent Login = new Intent(this, loginActivity.class);
+            startActivity(Login);
+            finish();
+        }
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        LogOut();
     }
 }

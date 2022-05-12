@@ -57,6 +57,7 @@ public class UserInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_info);
         init();
+        getData();
     }
 
     void findViewById() {
@@ -92,7 +93,7 @@ public class UserInfo extends AppCompatActivity {
     void init(){
         findViewById();
         buttonHandler();
-        CreateConnection conn = new CreateConnection("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTJmNmQyZTdiODM0NDMyZjBiZDkxNSIsImlhdCI6MTY0OTYwNDMwNiwiZXhwIjoxNjUyMTk2MzA2fQ.LNp_gNF4rn4N5qvX_MQVYWhHhSISCHhNRInSqLx0r3s");
+        CreateConnection conn = new CreateConnection(getString(R.string.token));
         placeHolder = conn.CreatePlaceHolder();
     }
 
@@ -101,8 +102,10 @@ public class UserInfo extends AppCompatActivity {
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                if (!response.isSuccessful())
+                if (!response.isSuccessful()) {
+                    Toast.makeText(UserInfo.this, "Something went wrong", Toast.LENGTH_LONG).show();
                     return;
+                }
                 user = response.body();
                 Picasso.get().load("https://dkhoa-work-lovers-2.herokuapp.com/" + user.getAvatar())
                         .error(R.drawable.ic_error)
@@ -119,7 +122,7 @@ public class UserInfo extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-
+                Toast.makeText(UserInfo.this, "Something went wrong", Toast.LENGTH_LONG).show();
             }
         });
     }
