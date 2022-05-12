@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-        btnHandler();
+//        btnHandler();
     }
 
     void init(){
@@ -32,13 +32,13 @@ public class MainActivity extends AppCompatActivity {
         constraintLUserInfo = findViewById(R.id.home_UserInfo);
     }
 
-    void btnHandler(){
-        constraintPayroll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, PayrollCal.class);
-                startActivity(intent);
-            }
-        });
-    }
+//    void btnHandler(){
+//        constraintPayroll.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this, PayrollCal.class);
+//                startActivity(intent);
+//            }
+//        });
+//    }
 }

@@ -11,4 +11,6 @@
     <color name="green">#04C300</color>
     <color name="red">#E53935</color>
     <color name="background_color">#F2F2F2</color>
+    <color name="shiraz">#B10A31</color>
+    <color name="shiraz_variant">#CC4A6A</color>
 </resources>
