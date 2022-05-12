@@ -27,11 +27,8 @@ public interface PlaceHolder {
     @GET("api/users/profile")
     Call<User> getProfile();
 
-    @FormUrlEncoded
-    @POST("api/users/")
-    Call<User> register(
-            @Body createNewAccount.UserInfo data
-            );
+    @POST("api/users")
+    Call<User> register(@Body createNewAccount.UserInfo data);
 
     @FormUrlEncoded
     @POST("api/users/login")

@@ -69,8 +69,6 @@ public class createNewAccount extends AppCompatActivity {
                     case R.id.radioF:
                         gender = "female";
                         break;
-
-
                     case R.id.radioM:
                     gender = "male";
                     break;
@@ -91,12 +89,17 @@ public class createNewAccount extends AppCompatActivity {
                         dob,
                         gender
                 );
-                Log.d("user", userName + ", " + password + ", " + emailAddress + ", " + address + ", " + cccd + ", " + fullName + ", " + phoneNumber + ", " + role + ", " + dob + ", " + gender);
-                if(!userName.isEmpty() && !emailAddress.isEmpty() && !password.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches()){
+                Log.d("username", String.valueOf(!userName.isEmpty()));
+                Log.d("email", String.valueOf(!emailAddress.isEmpty()));
+                Log.d("password", String.valueOf(!password.isEmpty()));
+                Log.d("email_again", String.valueOf(Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches()));
+
+//                if(!userName.isEmpty() && !emailAddress.isEmpty() && !password.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches()){
                     Call<User> call = placeHolder.register(userInfo);
                     call.enqueue(new Callback<User>() {
                         @Override
                         public void onResponse(Call<User> call, Response<User> response) {
+
                             if(!response.isSuccessful()) {
                                 Toast.makeText(getApplicationContext(), response.code() + ": " + response.message(), Toast.LENGTH_SHORT).show();
                                 return;
@@ -111,7 +114,7 @@ public class createNewAccount extends AppCompatActivity {
                         }
                     });
                 }
-            }
+            //}
         });
     }
 
