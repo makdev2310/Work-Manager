@@ -8,9 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 
 import Activities.Payroll.PayrollCal;
+import SignIn_SignUp.loginActivity;
 
 public class MainActivity extends AppCompatActivity {
-    ConstraintLayout constraintPayroll, constraintLUserInfo;
+    ConstraintLayout constraintPayroll, constraintLUserInfo, constraintLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-//        btnHandler();
+        btnHandler();
     }
 
     void init(){
@@ -30,15 +31,23 @@ public class MainActivity extends AppCompatActivity {
     void findViewById(){
         constraintPayroll = findViewById(R.id.home_Payroll);
         constraintLUserInfo = findViewById(R.id.home_UserInfo);
+        constraintLogin = findViewById(R.id.home_Login);
     }
 
-//    void btnHandler(){
-//        constraintPayroll.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, PayrollCal.class);
-//                startActivity(intent);
-//            }
-//        });
-//    }
+    void btnHandler(){
+        constraintPayroll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PayrollCal.class);
+                startActivity(intent);
+            }
+        });
+        constraintLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, loginActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 }

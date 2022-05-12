@@ -26,6 +26,10 @@
         <activity android:name="Activities.Payroll.PayrollCheck"/>
         <activity android:name="Activities.Payroll.PayrollConfirm"/>
         <activity android:name="Activities.Payroll.PayrollDetail"/>
+        <activity android:name="SignIn_SignUp.loginActivity"/>
+        <activity android:name="SignIn_SignUp.createNewAccount"/>
+
+
         <service android:name="Services.PushNotificationService"
             android:enabled="true"
             android:exported="true">

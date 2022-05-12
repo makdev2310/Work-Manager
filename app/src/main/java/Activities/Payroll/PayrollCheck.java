@@ -64,7 +64,7 @@ public class PayrollCheck extends AppCompatActivity {
     void init(){
         findViewById();
         users = this.getIntent().getExtras().getParcelableArrayList("staff_list");
-        CreateConnection conn = new CreateConnection("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTJmNmQyZTdiODM0NDMyZjBiZDkxNSIsImlhdCI6MTY0OTYwNDMwNiwiZXhwIjoxNjUyMTk2MzA2fQ.LNp_gNF4rn4N5qvX_MQVYWhHhSISCHhNRInSqLx0r3s");
+        CreateConnection conn = new CreateConnection(getString(R.string.token));
         placeHolder = conn.CreatePlaceHolder();
     }
 
@@ -126,7 +126,7 @@ public class PayrollCheck extends AppCompatActivity {
             }
             // Get new FCM registration token
             String token = task.getResult();
-            CreateConnection conn = new CreateConnection("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTJmNmQyZTdiODM0NDMyZjBiZDkxNSIsImlhdCI6MTY0OTYwNDMwNiwiZXhwIjoxNjUyMTk2MzA2fQ.LNp_gNF4rn4N5qvX_MQVYWhHhSISCHhNRInSqLx0r3s");
+            CreateConnection conn = new CreateConnection(getString(R.string.token));
             PlaceHolder placeHolder = conn.CreatePlaceHolder();
             FirebaseNotification notification = new FirebaseNotification(new NotificationData(Title, payroll), token);
             Call<Void> call = placeHolder.sendNotification(notification);

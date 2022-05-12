@@ -82,7 +82,7 @@ public class PayrollCal extends AppCompatActivity {
     void init(){
         findViewById();
         setUpAdapter();
-        CreateConnection conn = new CreateConnection("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTJmNmQyZTdiODM0NDMyZjBiZDkxNSIsImlhdCI6MTY0OTYwNDMwNiwiZXhwIjoxNjUyMTk2MzA2fQ.LNp_gNF4rn4N5qvX_MQVYWhHhSISCHhNRInSqLx0r3s");
+        CreateConnection conn = new CreateConnection(getString(R.string.token));
         placeHolder = conn.CreatePlaceHolder();
     }
 

@@ -17,6 +17,7 @@ import com.example.workmanager.MainActivity;
 import com.example.workmanager.R;
 
 import Models.User;
+import Services.CreateConnection;
 import Services.PlaceHolder;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,19 +35,15 @@ public class loginActivity extends AppCompatActivity {
     EditText emailLogIn;
     EditText passwordLogIn;
     TextView forgottenPassword;
+    PlaceHolder placeHolder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:3000/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        //Let retrofit do its job
-        PlaceHolder placeHolder = retrofit.create(PlaceHolder.class);
+        CreateConnection conn = new CreateConnection(getString(R.string.token));
+        placeHolder = conn.CreatePlaceHolder();
         findViewById();
 
         btn_createNewAccount.setOnClickListener(new View.OnClickListener() {

@@ -5,6 +5,7 @@ import java.util.List;
 import Activities.Payroll.PayrollCheck;
 import Models.Payroll;
 import Models.User;
+import SignIn_SignUp.createNewAccount;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
@@ -27,22 +28,13 @@ public interface PlaceHolder {
     Call<User> getProfile();
 
     @FormUrlEncoded
-    @POST("users/")
+    @POST("api/users/")
     Call<User> register(
-            @Field("username") String username,
-            @Field("email") String email,
-            @Field("password") String password,
-            @Field("address") String address,
-            @Field("cccd") String cccd,
-            @Field("fullname") String fullname,
-            @Field("phoneNumber") String phoneNumber,
-            @Field("role") String role,
-            @Field("dob") String dob,
-            @Field("gender") String gender
-    );
+            @Body createNewAccount.UserInfo data
+            );
 
     @FormUrlEncoded
-    @POST("users/login")
+    @POST("api/users/login")
     Call<User> login(
             @Field("email") String email,
             @Field("password") String password
