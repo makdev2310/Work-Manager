@@ -17,7 +17,22 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textAlignment="center"
+            android:text="Chỉnh sửa thông tin"
+            android:textSize="30dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -49,7 +64,13 @@
                         android:src="@color/black"
                         tools:srcCompat="@tools:sample/avatars" />
 
-
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/user_info_checkIcon"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom|end"
+                        android:src="@drawable/ic_edit_avatar"
+                        android:backgroundTint="@color/white"/>
                 </FrameLayout>
 
 
@@ -67,11 +88,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="10dp">
-
-                        <View style="@style/Divider"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/user_info_txt1"
-                            android:layout_marginTop="5dp"/>
 
                         <TextView
                             android:id="@+id/user_info_txt1"
@@ -103,10 +119,6 @@
                             app:layout_constraintTop_toTopOf="parent"/>
 
 
-                        <View style="@style/Divider"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/user_info_txt2"
-                            android:layout_marginTop="5dp"/>
                         <TextView
                             android:id="@+id/user_info_txt2"
                             android:layout_width="wrap_content"
@@ -117,28 +129,25 @@
                             android:textColor="@color/black"
                             android:textSize="25sp"
                             android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/edit_user_info_ten"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/user_info_manv" />
 
-                        <TextView
-                            android:id="@+id/user_info_ten"
+                        <EditText
+                            android:id="@+id/edit_user_info_ten"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="20dp"
                             android:layout_marginTop="10dp"
                             android:textAlignment="textEnd"
-                            android:text="data"
+                            android:hint="Nhập họ và tên"
                             android:textColor="@color/black"
                             android:textSize="25sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/user_info_txt2"
                             app:layout_constraintTop_toBottomOf="@+id/user_info_manv" />
 
-                        <View style="@style/Divider"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/user_info_txt3"
-                            android:layout_marginTop="5dp"/>
                         <TextView
                             android:id="@+id/user_info_txt3"
                             android:layout_width="wrap_content"
@@ -149,27 +158,25 @@
                             android:textColor="@color/black"
                             android:textSize="25sp"
                             android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/edit_user_info_gioitinh"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/user_info_ten" />
-                        <TextView
-                            android:id="@+id/user_info_gioitinh"
+                            app:layout_constraintTop_toBottomOf="@+id/edit_user_info_ten" />
+
+                        <Spinner
+                            android:id="@+id/edit_user_info_gioitinh"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:minHeight="48dp"
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="20dp"
                             android:layout_marginTop="10dp"
                             android:textAlignment="textEnd"
-                            android:text="data"
                             android:textColor="@color/black"
                             android:textSize="25sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/user_info_txt3"
-                            app:layout_constraintTop_toBottomOf="@+id/user_info_ten" />
+                            app:layout_constraintTop_toBottomOf="@+id/edit_user_info_ten" />
 
-                        <View style="@style/Divider"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/user_info_txt4"
-                            android:layout_marginTop="5dp"/>
                         <TextView
                             android:id="@+id/user_info_txt4"
                             android:layout_width="wrap_content"
@@ -180,27 +187,26 @@
                             android:textColor="@color/black"
                             android:textSize="25sp"
                             android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/edit_user_info_ngaysinh"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/user_info_gioitinh" />
-                        <TextView
-                            android:id="@+id/user_info_ngaysinh"
+                            app:layout_constraintTop_toBottomOf="@+id/edit_user_info_gioitinh" />
+
+                        <EditText
+                            android:id="@+id/edit_user_info_ngaysinh"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="20dp"
                             android:layout_marginTop="10dp"
                             android:textAlignment="textEnd"
-                            android:text="data"
+                            android:hint="Nhập ngày sinh"
                             android:textColor="@color/black"
                             android:textSize="25sp"
+                            android:inputType="date"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/user_info_txt4"
-                            app:layout_constraintTop_toBottomOf="@+id/user_info_gioitinh" />
+                            app:layout_constraintTop_toBottomOf="@+id/edit_user_info_gioitinh" />
 
-                        <View style="@style/Divider"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/user_info_txt5"
-                            android:layout_marginTop="5dp"/>
                         <TextView
                             android:id="@+id/user_info_txt5"
                             android:layout_width="wrap_content"
@@ -211,27 +217,25 @@
                             android:textColor="@color/black"
                             android:textSize="25sp"
                             android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/edit_user_info_cccd"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/user_info_ngaysinh" />
-                        <TextView
-                            android:id="@+id/user_info_cccd"
+                            app:layout_constraintTop_toBottomOf="@+id/edit_user_info_ngaysinh" />
+
+                        <EditText
+                            android:id="@+id/edit_user_info_cccd"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="20dp"
                             android:layout_marginTop="10dp"
                             android:textAlignment="textEnd"
-                            android:text="data"
+                            android:hint="Nhập mã CCCD"
                             android:textColor="@color/black"
                             android:textSize="25sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/user_info_txt5"
-                            app:layout_constraintTop_toBottomOf="@+id/user_info_ngaysinh" />
+                            app:layout_constraintTop_toBottomOf="@+id/edit_user_info_ngaysinh" />
 
-                        <View style="@style/Divider"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/user_info_txt6"
-                            android:layout_marginTop="5dp"/>
                         <TextView
                             android:id="@+id/user_info_txt6"
                             android:layout_width="wrap_content"
@@ -242,22 +246,25 @@
                             android:textColor="@color/black"
                             android:textSize="25sp"
                             android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/edit_user_info_sdt"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/user_info_cccd" />
-                        <TextView
-                            android:id="@+id/user_info_sdt"
+                            app:layout_constraintTop_toBottomOf="@+id/edit_user_info_cccd" />
+
+                        <EditText
+                            android:id="@+id/edit_user_info_sdt"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="20dp"
                             android:layout_marginTop="10dp"
                             android:textAlignment="textEnd"
-                            android:text="data"
+                            android:hint="Nhập SĐT"
                             android:textColor="@color/black"
                             android:textSize="25sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/user_info_txt6"
-                            app:layout_constraintTop_toBottomOf="@+id/user_info_cccd" />
+                            app:layout_constraintTop_toBottomOf="@+id/edit_user_info_cccd" />
+
                         <TextView
                             android:id="@+id/user_info_txt7"
                             android:layout_width="wrap_content"
@@ -268,9 +275,11 @@
                             android:textColor="@color/black"
                             android:textSize="25sp"
                             android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/user_info_diachi"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/user_info_sdt" />
-                        <TextView
+                            app:layout_constraintTop_toBottomOf="@+id/edit_user_info_sdt" />
+
+                        <EditText
                             android:id="@+id/user_info_diachi"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -278,12 +287,12 @@
                             android:layout_marginEnd="20dp"
                             android:layout_marginTop="10dp"
                             android:textAlignment="textEnd"
-                            android:text="data"
+                            android:hint="Nhập địa chỉ"
                             android:textColor="@color/black"
                             android:textSize="25sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/user_info_txt7"
-                            app:layout_constraintTop_toBottomOf="@+id/user_info_sdt" />
+                            app:layout_constraintTop_toBottomOf="@+id/edit_user_info_sdt" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -368,17 +377,33 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    app:layout_constraintTop_toBottomOf="@id/cardView">
                 <Button
-                    android:id="@+id/user_info_Edit"
-                    android:layout_width="180dp"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="10dp"
-                    android:backgroundTint="@color/red"
-                    android:text="Chỉnh sửa"
-                    android:textSize="18dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView" />
+                    android:id="@+id/edit_user_info_Cancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/gray"
+                    android:text="Cancel" />
+
+
+                <Button
+                    android:id="@+id/edit_user_info_Luu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/shiraz_variant"
+                    android:text="Ok" />
+
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
 

@@ -45,4 +45,12 @@ public interface PlaceHolder {
       @Field("isApproved") Boolean isApproved, //true = approve, false = disapprove
       @Path("id") String id // id of the day off boss want to approve.
     );
+
+    @FormUrlEncoded
+    @PUT("api/users/profile")
+    Call<Void> updateProfile(
+            @Field("fullname") String fullname,
+            @Field("phoneNumber") String phoneNumber,
+            @Field("dob") String dob
+    );
 }

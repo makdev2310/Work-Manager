@@ -1,4 +1,9 @@
 <resources>
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
     <string name="app_name">Work Manager</string>
     <string name="payroll_Title">Chấm công</string>
     <string name="token">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTJmNmQyZTdiODM0NDMyZjBiZDkxNSIsImlhdCI6MTY1MjM2MTMxNCwiZXhwIjoxNjU0OTUzMzE0fQ.yYGUwz4bYgEqO9aMIBxt1TMzCcF6E_xJEUSERwfbTfE</string>

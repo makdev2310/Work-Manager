@@ -1,8 +1,16 @@
 package Activities.User;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -47,9 +55,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class UserInfo extends AppCompatActivity {
-    CircleImageView user_info_Avatar, checkIcon;
+    CircleImageView user_info_Avatar;
     TextView MaNV, Ten, GioiTinh, NgaySinh, CCCD, SDT, DiaChi, PhongBan, ChucVu;
-    Button Luu;
+    Button Edit;
     PlaceHolder placeHolder;
     User user;
     @Override
@@ -62,7 +70,6 @@ public class UserInfo extends AppCompatActivity {
 
     void findViewById() {
         user_info_Avatar = findViewById(R.id.user_info_ivAvatar);
-        checkIcon = findViewById(R.id.user_info_checkIcon);
         MaNV = findViewById(R.id.user_info_manv);
         Ten = findViewById(R.id.user_info_ten);
         GioiTinh = findViewById(R.id.user_info_gioitinh);
@@ -72,22 +79,81 @@ public class UserInfo extends AppCompatActivity {
         DiaChi = findViewById(R.id.user_info_diachi);
         PhongBan = findViewById(R.id.user_info_phongban);
         ChucVu = findViewById(R.id.user_info_chucvu);
-        Luu = findViewById(R.id.user_info_Luu);
+        Edit = findViewById(R.id.user_info_Edit);
     }
 
     void buttonHandler(){
-        Luu.setOnClickListener(new View.OnClickListener() {
+        Edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Dialog dialog = new Dialog(getApplicationContext());
+                dialog.setContentView(R.layout.edit_info);
+                EditText editTen = dialog.findViewById(R.id.edit_user_info_ten);
+                Spinner editGioitinh = dialog.findViewById(R.id.edit_user_info_gioitinh);
+                EditText editNgaysinh = dialog.findViewById(R.id.edit_user_info_ngaysinh);
+                EditText editCccd = dialog.findViewById(R.id.edit_user_info_cccd);
+                EditText editSdt = dialog.findViewById(R.id.edit_user_info_sdt);
+                Button btnLuu = dialog.findViewById(R.id.edit_user_info_Luu);
+                Button btnCancel = dialog.findViewById(R.id.edit_user_info_Cancel);
+                btnCancel.setOnClickListener(view1 -> dialog.dismiss());
+                btnLuu.setOnClickListener(view2 -> {
 
+                    String fullname = editTen.getText().toString();
+                    if(fullname.isEmpty()){
+                        Toast.makeText(getApplicationContext(), "Invalid Name", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    String phoneNumber = editSdt.getText().toString();
+                    if(phoneNumber.isEmpty()){
+                        Toast.makeText(getApplicationContext(), "Invalid Name", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    String dob = editNgaysinh.getText().toString();
+                    if(dob.isEmpty()){
+                        Toast.makeText(getApplicationContext(), "Invalid Name", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.gender_array, android.R.layout.simple_spinner_item);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    Spinner Gender = findViewById(R.id.edit_user_info_gioitinh);
+                    Gender.setAdapter(adapter);
+                    final String[] gender_selected = new String[1];
+                    Gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                            Adapter adapter1 = adapterView.getAdapter();
+                            gender_selected[0] = (String) adapter1.getItem(i);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> adapterView) {
+                        }
+                    });
+
+                    Call<Void> call = placeHolder.updateProfile(fullname, phoneNumber, dob);
+                    call.enqueue(new Callback<Void>() {
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                            if (response.isSuccessful())
+                                Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
+                            else Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+                            Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    dialog.dismiss();
+                });
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
             }
         });
-        checkIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
     }
 
     void init(){
