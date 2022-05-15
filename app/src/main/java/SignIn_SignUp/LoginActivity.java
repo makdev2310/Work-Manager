@@ -16,19 +16,19 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.workmanager.MainActivity;
 import com.example.workmanager.R;
 
+import java.util.Date;
+
 import Models.User;
 import Services.CreateConnection;
 import Services.PlaceHolder;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * DONE
  */
-public class loginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     Button btn_createNewAccount;
     Button btn_logIn;
@@ -49,7 +49,7 @@ public class loginActivity extends AppCompatActivity {
         btn_createNewAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(loginActivity.this, createNewAccount.class);
+                Intent intent = new Intent(LoginActivity.this, CreateNewAccount.class);
                 startActivity(intent);
             }
         });
@@ -60,7 +60,7 @@ public class loginActivity extends AppCompatActivity {
                 String email = emailLogIn.getText().toString();
                 String password = passwordLogIn.getText().toString();
                 if((email.isEmpty() || password.isEmpty()) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                    Toast.makeText(loginActivity.this, "Invalid Username or Password!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Invalid Username or Password!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 Call<User> call = placeHolder.login(email, password);
@@ -68,14 +68,14 @@ public class loginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
                         if(!response.isSuccessful()) {
-                            Toast.makeText(loginActivity.this,response.code() + ": " + response.message(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this,response.code() + ": " + response.message(), Toast.LENGTH_SHORT).show();
                             return;
                         }
                         Toast.makeText(getApplicationContext(), "Success!!!", Toast.LENGTH_SHORT).show();
-                        User user = response.body();
-                        Intent intent = new Intent(loginActivity.this, MainActivity.class);
+                        UserInfo user = (UserInfo) response.body();
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
-                        SaveSharedPreference.setUser(getApplicationContext(), user.getUsername(), user.getEmail(), user.getAvatar(), user.get_id());
+                        SaveSharedPreference.setUser(getApplicationContext(), user.getUsername(), user.getEmail(), user.getAvatar(), user.get_id(), user.getToken());
                         ConstraintLayout loading = findViewById(R.id.loading);
                         loading.setVisibility(View.VISIBLE);
                         finish();
@@ -88,6 +88,18 @@ public class loginActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    public class UserInfo extends User{
+        String token;
+        public UserInfo(String username, String password, String email, String address, String cccd, String fullname, long phoneNumber, String role, int maxDateOff, Date dob, String gender, boolean isBoss, String avatar, Date create_at, String token) {
+            super(username, password, email, address, cccd, fullname, phoneNumber, role, maxDateOff, dob, gender, isBoss, avatar, create_at);
+            this.token = token;
+        }
+
+        public String getToken() {
+            return token;
+        }
     }
     private void findViewById(){
         btn_createNewAccount = findViewById(R.id.activity_login_create_account);

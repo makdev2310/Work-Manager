@@ -2,74 +2,91 @@ package com.example.workmanager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import Activities.Payroll.PayrollCal;
 import Activities.User.UserInfo;
+import Fragments.AboutFragment;
+import Fragments.HomeFragment;
+import Fragments.NotificationFragment;
 import SignIn_SignUp.SaveSharedPreference;
-import SignIn_SignUp.loginActivity;
+import SignIn_SignUp.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
-    ConstraintLayout constraintPayroll, constraintLUserInfo, constraintLogin;
-
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        if(savedInstanceState != null){
-//            onResume();
-//        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+        if (savedInstanceState == null){
+            //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+            bottomNavigationView.setSelectedItemId(R.id.HomePage);
+        }
         btnHandler();
     }
 
     void init(){
         findViewById();
+        NavigationBar();
     }
 
     void findViewById(){
-        constraintPayroll = findViewById(R.id.home_Payroll);
-        constraintLUserInfo = findViewById(R.id.home_UserInfo);
-        constraintLogin = findViewById(R.id.home_Login);
+        bottomNavigationView = findViewById(R.id.NavigationBar);
     }
 
     void btnHandler(){
-        constraintPayroll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, PayrollCal.class);
-                startActivity(intent);
-            }
-        });
-        constraintLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, loginActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        constraintLUserInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, UserInfo.class);
-                startActivity(intent);
-            }
-        });
     }
 
     void LogOut() {
         if (SaveSharedPreference.getUserName(this).isEmpty()) {
-            Intent Login = new Intent(this, loginActivity.class);
+            Intent Login = new Intent(this, LoginActivity.class);
             startActivity(Login);
             finish();
         }
+    }
 
+    private void NavigationBar() {
+        bottomNavigationView = findViewById(R.id.NavigationBar);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            Fragment selectedFragment = null;
+            switch (item.getItemId()) {
+                case R.id.NotificationPage:
+                    selectedFragment = new NotificationFragment();
+                    break;
+                case R.id.HomePage:
+                    selectedFragment = new HomeFragment();
+                    break;
+                case R.id.AboutPage:
+                    selectedFragment = new AboutFragment();
+                    break;
+            }
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+            return true;
+        });
+        bottomNavigationView.setOnItemReselectedListener(item -> {
+            Fragment selectedFragment = null;
+            switch (item.getItemId()) {
+                case R.id.NotificationPage:
+                    selectedFragment = new NotificationFragment();
+                    break;
+                case R.id.HomePage:
+                    selectedFragment = new HomeFragment();
+                    break;
+                case R.id.AboutPage:
+                    selectedFragment = new AboutFragment();
+                    break;
+            }
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+        });
     }
 
     @Override

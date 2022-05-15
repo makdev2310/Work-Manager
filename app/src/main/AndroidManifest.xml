@@ -27,8 +27,8 @@
         <activity android:name="Activities.Payroll.PayrollConfirm"/>
         <activity android:name="Activities.Payroll.PayrollDetail"/>
         <activity android:name="Activities.User.UserInfo"/>
-        <activity android:name="SignIn_SignUp.loginActivity"/>
-        <activity android:name="SignIn_SignUp.createNewAccount"/>
+        <activity android:name="SignIn_SignUp.LoginActivity"/>
+        <activity android:name="SignIn_SignUp.CreateNewAccount"/>
 
 
         <service android:name="Services.PushNotificationService"

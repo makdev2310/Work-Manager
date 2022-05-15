@@ -11,20 +11,26 @@ public class SaveSharedPreference {
     static final String PREF_USER_NAME= "username";
     static final String PREF_EMAIL= "email";
     static final String PREF_AVATAR= "avatar";
+    static final String PREF_TOKEN= "token";
     static final String PREF_ID= "_id";
 
     static SharedPreferences getSharedPreferences(Context ctx){
         return PreferenceManager.getDefaultSharedPreferences(ctx);
     }
 
-    public static void setUser(Context ctx, String userName, String email, String avatar, String _id) {
-
+    public static void setUser(Context ctx, String userName, String email, String avatar, String _id, String token) {
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
         editor.putString(PREF_USER_NAME, userName);
         editor.putString(PREF_EMAIL, email);
         editor.putString(PREF_AVATAR, avatar);
+        editor.putString(PREF_TOKEN, token);
         editor.putString(PREF_ID, _id);
         editor.commit();
+    }
+
+    public static void setPrefToken(Context ctx, String token){
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.putString(PREF_TOKEN, token);
     }
 
     public static String getUserName(Context ctx){
@@ -44,5 +50,8 @@ public class SaveSharedPreference {
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
         editor.clear();
         editor.commit();
+    }
+    public static String getPrefToken(Context ctx) {
+        return getSharedPreferences(ctx).getString(PREF_TOKEN, "");
     }
 }

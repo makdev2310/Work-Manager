@@ -26,7 +26,7 @@ import retrofit2.Response;
 /**
  * DONE
  */
-public class createNewAccount extends AppCompatActivity {
+public class CreateNewAccount extends AppCompatActivity {
 
     EditText createAccountUsername;
     EditText createAccountEmail;

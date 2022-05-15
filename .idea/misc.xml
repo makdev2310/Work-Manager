@@ -14,7 +14,13 @@
         <entry key="..\:/Users/USER/Desktop/Work-Manager/app/src/main/res/layout/user_info.xml" value="0.264" />
         <entry key="app/src/main/res/drawable/ic_check.xml" value="0.1475" />
         <entry key="app/src/main/res/drawable/ic_creditcard.xml" value="0.2155" />
+        <entry key="app/src/main/res/drawable/ic_home.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_notification.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_user.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2256525675455728" />
+        <entry key="app/src/main/res/layout/fragment_about.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/fragment_notification.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/item_user.xml" value="0.2966013590494791" />
         <entry key="app/src/main/res/layout/payroll_cal.xml" value="0.3266896565755208" />
         <entry key="app/src/main/res/layout/payroll_check.xml" value="0.1890625" />
@@ -23,6 +29,7 @@
         <entry key="app/src/main/res/layout/round_item_staff.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/round_item_staff_avatar.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/user_info.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1" />
       </map>
     </option>
   </component>
