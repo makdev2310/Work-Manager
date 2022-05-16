@@ -86,16 +86,19 @@ public class UserInfo extends AppCompatActivity {
         Edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dialog dialog = new Dialog(getApplicationContext());
+                Dialog dialog = new Dialog(UserInfo.this);
                 dialog.setContentView(R.layout.edit_info);
                 EditText editTen = dialog.findViewById(R.id.edit_user_info_ten);
-                Spinner editGioitinh = dialog.findViewById(R.id.edit_user_info_gioitinh);
                 EditText editNgaysinh = dialog.findViewById(R.id.edit_user_info_ngaysinh);
                 EditText editCccd = dialog.findViewById(R.id.edit_user_info_cccd);
                 EditText editSdt = dialog.findViewById(R.id.edit_user_info_sdt);
                 Button btnLuu = dialog.findViewById(R.id.edit_user_info_Luu);
                 Button btnCancel = dialog.findViewById(R.id.edit_user_info_Cancel);
                 btnCancel.setOnClickListener(view1 -> dialog.dismiss());
+                ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(UserInfo.this, R.array.gender_array, android.R.layout.simple_spinner_item);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                Spinner Gender = dialog.findViewById(R.id.edit_user_info_gioitinh);
+                Gender.setAdapter(adapter);
                 btnLuu.setOnClickListener(view2 -> {
 
                     String fullname = editTen.getText().toString();
@@ -116,10 +119,6 @@ public class UserInfo extends AppCompatActivity {
                         return;
                     }
 
-                    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.gender_array, android.R.layout.simple_spinner_item);
-                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    Spinner Gender = findViewById(R.id.edit_user_info_gioitinh);
-                    Gender.setAdapter(adapter);
                     final String[] gender_selected = new String[1];
                     Gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
@@ -139,7 +138,8 @@ public class UserInfo extends AppCompatActivity {
                         public void onResponse(Call<Void> call, Response<Void> response) {
                             if (response.isSuccessful())
                                 Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
-                            else Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
+                            else
+                                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
                         }
 
                         @Override
