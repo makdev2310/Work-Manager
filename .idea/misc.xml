@@ -6,7 +6,6 @@
         <entry key="..\:/Users/USER/Desktop/Work-Manager/app/src/main/res/layout/activity_create_account.xml" value="0.25" />
         <entry key="..\:/Users/USER/Desktop/Work-Manager/app/src/main/res/layout/activity_log_in.xml" value="0.25" />
         <entry key="..\:/Users/USER/Desktop/Work-Manager/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/USER/Desktop/Work-Manager/app/src/main/res/layout/edit_info.xml" value="0.25" />
         <entry key="..\:/Users/USER/Desktop/Work-Manager/app/src/main/res/layout/item_user.xml" value="0.25" />
         <entry key="..\:/Users/USER/Desktop/Work-Manager/app/src/main/res/layout/payroll_check.xml" value="0.25" />
         <entry key="..\:/Users/USER/Desktop/Work-Manager/app/src/main/res/layout/payroll_confirm.xml" value="0.25" />
@@ -16,10 +15,12 @@
         <entry key="app/src/main/res/drawable/ic_check.xml" value="0.1475" />
         <entry key="app/src/main/res/drawable/ic_creditcard.xml" value="0.2155" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_logo.xml" value="0.196" />
         <entry key="app/src/main/res/drawable/ic_notification.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_user.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2256525675455728" />
-        <entry key="app/src/main/res/layout/fragment_about.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/edit_info.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/fragment_about.xml" value="0.2847447713216146" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/fragment_notification.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/item_user.xml" value="0.2966013590494791" />

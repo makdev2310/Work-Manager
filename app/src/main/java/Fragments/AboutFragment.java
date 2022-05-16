@@ -1,11 +1,11 @@
 package Fragments;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,7 +19,8 @@ import SignIn_SignUp.LoginActivity;
 import SignIn_SignUp.SaveSharedPreference;
 
 public class AboutFragment extends Fragment {
-    ConstraintLayout constraintLUserInfo, constraintLogin;
+    ConstraintLayout constraintLUserInfo;
+    Button logOut;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,10 +36,10 @@ public class AboutFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        constraintLUserInfo = view.findViewById(R.id.home_UserInfo);
-        constraintLogin = view.findViewById(R.id.home_Login);
+        constraintLUserInfo = view.findViewById(R.id.about_UserInfo);
+        logOut = view.findViewById(R.id.fragmentabout_logout);
 
-        constraintLogin.setOnClickListener(new View.OnClickListener() {
+        logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SaveSharedPreference.clearUser(getContext());

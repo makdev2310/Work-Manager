@@ -63,10 +63,10 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Invalid Username or Password!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Call<User> call = placeHolder.login(email, password);
-                call.enqueue(new Callback<User>() {
+                Call<UserInfo> call = placeHolder.login(email, password);
+                call.enqueue(new Callback<UserInfo>() {
                     @Override
-                    public void onResponse(Call<User> call, Response<User> response) {
+                    public void onResponse(Call<UserInfo> call, Response<UserInfo> response) {
                         if(!response.isSuccessful()) {
                             Toast.makeText(LoginActivity.this,response.code() + ": " + response.message(), Toast.LENGTH_SHORT).show();
                             return;
@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<User> call, Throwable t) {
+                    public void onFailure(Call<UserInfo> call, Throwable t) {
                         Toast.makeText(getApplicationContext(), "Something went wrong! 😢 \n Please try again! \n"+t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -96,7 +96,6 @@ public class LoginActivity extends AppCompatActivity {
             super(username, password, email, address, cccd, fullname, phoneNumber, role, maxDateOff, dob, gender, isBoss, avatar, create_at);
             this.token = token;
         }
-
         public String getToken() {
             return token;
         }

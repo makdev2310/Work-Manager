@@ -6,6 +6,7 @@ import Activities.Payroll.PayrollCheck;
 import Models.Payroll;
 import Models.User;
 import SignIn_SignUp.CreateNewAccount;
+import SignIn_SignUp.LoginActivity;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
@@ -34,7 +35,7 @@ public interface PlaceHolder {
 
     @FormUrlEncoded
     @POST("api/users/login")
-    Call<User> login(
+    Call<LoginActivity.UserInfo> login(
             @Field("email") String email,
             @Field("password") String password
     );
