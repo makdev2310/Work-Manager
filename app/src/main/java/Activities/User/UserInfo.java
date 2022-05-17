@@ -15,41 +15,15 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.workmanager.R;
 
 import Models.User;
 import Services.CreateConnection;
 import Services.PlaceHolder;
 import de.hdodenhof.circleimageview.CircleImageView;
-
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.workmanager.R;
 import com.squareup.picasso.Picasso;
-
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-
-import Models.User;
-import Services.CreateConnection;
-import Services.PlaceHolder;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -88,16 +62,28 @@ public class UserInfo extends AppCompatActivity {
             public void onClick(View view) {
                 Dialog dialog = new Dialog(UserInfo.this);
                 dialog.setContentView(R.layout.edit_info);
+                TextView id = dialog.findViewById(R.id.user_info_manv);
                 EditText editTen = dialog.findViewById(R.id.edit_user_info_ten);
                 EditText editNgaysinh = dialog.findViewById(R.id.edit_user_info_ngaysinh);
                 EditText editCccd = dialog.findViewById(R.id.edit_user_info_cccd);
                 EditText editSdt = dialog.findViewById(R.id.edit_user_info_sdt);
+                EditText editDiaChi = dialog.findViewById(R.id.user_info_diachi);
                 Button btnLuu = dialog.findViewById(R.id.edit_user_info_Luu);
                 Button btnCancel = dialog.findViewById(R.id.edit_user_info_Cancel);
                 btnCancel.setOnClickListener(view1 -> dialog.dismiss());
                 ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(UserInfo.this, R.array.gender_array, android.R.layout.simple_spinner_item);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 Spinner Gender = dialog.findViewById(R.id.edit_user_info_gioitinh);
+                CircleImageView avatar = dialog.findViewById(R.id.edit_user_info_ivAvatar);
+                Picasso.get().load("https://dkhoa-work-lovers-2.herokuapp.com/" + user.getAvatar())
+                        .error(R.drawable.ic_error)
+                        .into(avatar);
+                id.setText(user.get_id());
+                editTen.setText(user.getFullname());
+                editNgaysinh.setText(new SimpleDateFormat("dd/MM/yyyy").format(user.getDob()));
+                editCccd.setText(user.getCccd());
+                editSdt.setText(String.valueOf(user.getPhoneNumber()));
+                editDiaChi.setText(user.getAddress());
                 Gender.setAdapter(adapter);
                 btnLuu.setOnClickListener(view2 -> {
 
@@ -177,6 +163,9 @@ public class UserInfo extends AppCompatActivity {
                         .error(R.drawable.ic_error)
                         .into(user_info_Avatar);
                 MaNV.setText(user.get_id());
+                MaNV.setSelected(true);
+                SDT.setSelected(true);
+                DiaChi.setSelected(true);
                 Ten.setText(user.getFullname());
                 GioiTinh.setText(user.getGender());
                 NgaySinh.setText(new SimpleDateFormat("dd/MM/yyyy").format(user.getDob()));

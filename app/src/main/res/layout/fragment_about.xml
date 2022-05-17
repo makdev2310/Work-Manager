@@ -48,15 +48,19 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/about_phoneNumber"
+                    android:id="@+id/about_email"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:singleLine="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="0329421001"
+                    android:text="Usr@gmail.com"
                     android:textSize="24dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/about_avatar"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="5dp"

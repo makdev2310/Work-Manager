@@ -21,14 +21,14 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/user_info_ivAvatar"
+                android:id="@+id/edit_user_info_ivAvatar"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:src="@color/black"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/user_info_checkIcon"
+                android:id="@+id/edit_user_info_checkIcon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="bottom|end"
@@ -74,6 +74,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="20dp"
                     android:text="data"
+                    android:maxLines="1"
                     android:textAlignment="textEnd"
                     android:textColor="@color/black"
                     android:textSize="18sp"
