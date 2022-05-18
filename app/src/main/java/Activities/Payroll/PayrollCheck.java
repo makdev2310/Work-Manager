@@ -34,6 +34,7 @@ import Models.Payroll;
 import Models.User;
 import Services.CreateConnection;
 import Services.PlaceHolder;
+import SignIn_SignUp.SaveSharedPreference;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -64,7 +65,7 @@ public class PayrollCheck extends AppCompatActivity {
     void init(){
         findViewById();
         users = this.getIntent().getExtras().getParcelableArrayList("staff_list");
-        CreateConnection conn = new CreateConnection(getString(R.string.token));
+        CreateConnection conn = new CreateConnection(SaveSharedPreference.getPrefToken(this));
         placeHolder = conn.CreatePlaceHolder();
     }
 
@@ -126,7 +127,7 @@ public class PayrollCheck extends AppCompatActivity {
             }
             // Get new FCM registration token
             String token = task.getResult();
-            CreateConnection conn = new CreateConnection(getString(R.string.token));
+            CreateConnection conn = new CreateConnection(SaveSharedPreference.getPrefToken(this));
             PlaceHolder placeHolder = conn.CreatePlaceHolder();
             FirebaseNotification notification = new FirebaseNotification(new NotificationData(Title, payroll), token);
             Call<Void> call = placeHolder.sendNotification(notification);

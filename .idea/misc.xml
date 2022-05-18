@@ -18,6 +18,8 @@
         <entry key="app/src/main/res/drawable/ic_logo.xml" value="0.196" />
         <entry key="app/src/main/res/drawable/ic_notification.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_user.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/activity_log_in.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2256525675455728" />
         <entry key="app/src/main/res/layout/edit_info.xml" value="0.45" />
         <entry key="app/src/main/res/layout/fragment_about.xml" value="0.2847447713216146" />

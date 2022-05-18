@@ -10,6 +10,7 @@ import android.preference.PreferenceManager;
 public class SaveSharedPreference {
     static final String PREF_USER_NAME= "username";
     static final String PREF_EMAIL= "email";
+    static final String PREF_ROLE= "role";
     static final String PREF_AVATAR= "avatar";
     static final String PREF_TOKEN= "token";
     static final String PREF_ID= "_id";
@@ -18,10 +19,11 @@ public class SaveSharedPreference {
         return PreferenceManager.getDefaultSharedPreferences(ctx);
     }
 
-    public static void setUser(Context ctx, String userName, String email, String avatar, String _id, String token) {
+    public static void setUser(Context ctx, String userName, String email, String avatar, String _id, String role, String token) {
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
         editor.putString(PREF_USER_NAME, userName);
         editor.putString(PREF_EMAIL, email);
+        editor.putString(PREF_ROLE, role);
         editor.putString(PREF_AVATAR, avatar);
         editor.putString(PREF_TOKEN, token);
         editor.putString(PREF_ID, _id);
@@ -31,6 +33,10 @@ public class SaveSharedPreference {
     public static void setPrefToken(Context ctx, String token){
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
         editor.putString(PREF_TOKEN, token);
+    }
+
+    public static String getRole(Context ctx){
+        return getSharedPreferences(ctx).getString(PREF_ROLE, "");
     }
 
     public static String getUserName(Context ctx){

@@ -26,6 +26,7 @@ import java.util.List;
 import Models.User;
 import Services.CreateConnection;
 import Services.PlaceHolder;
+import SignIn_SignUp.SaveSharedPreference;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -82,7 +83,7 @@ public class PayrollCal extends AppCompatActivity {
     void init(){
         findViewById();
         setUpAdapter();
-        CreateConnection conn = new CreateConnection(getString(R.string.token));
+        CreateConnection conn = new CreateConnection(SaveSharedPreference.getPrefToken(this));
         placeHolder = conn.CreatePlaceHolder();
     }
 

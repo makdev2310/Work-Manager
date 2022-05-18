@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
-        CreateConnection conn = new CreateConnection(getString(R.string.token));
+        CreateConnection conn = new CreateConnection(SaveSharedPreference.getPrefToken(this));
         placeHolder = conn.CreatePlaceHolder();
         findViewById();
 
@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                         UserInfo user = (UserInfo) response.body();
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
-                        SaveSharedPreference.setUser(getApplicationContext(), user.getUsername(), user.getEmail(), user.getAvatar(), user.get_id(), user.getToken());
+                        SaveSharedPreference.setUser(getApplicationContext(), user.getFullname(), user.getEmail(), user.getAvatar(), user.get_id(), user.getRole(), user.getToken());
                         ConstraintLayout loading = findViewById(R.id.loading);
                         loading.setVisibility(View.VISIBLE);
                         finish();

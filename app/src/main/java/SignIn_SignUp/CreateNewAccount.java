@@ -49,7 +49,7 @@ public class CreateNewAccount extends AppCompatActivity {
 
 
         findViewById();
-        CreateConnection conn = new CreateConnection(getString(R.string.token));
+        CreateConnection conn = new CreateConnection(SaveSharedPreference.getPrefToken(this));
         placeHolder = conn.CreatePlaceHolder();
 
         createAccountSignUp.setOnClickListener(new View.OnClickListener() {

@@ -20,6 +20,7 @@ import com.example.workmanager.R;
 import Models.User;
 import Services.CreateConnection;
 import Services.PlaceHolder;
+import SignIn_SignUp.SaveSharedPreference;
 import de.hdodenhof.circleimageview.CircleImageView;
 import android.widget.Toast;
 import com.squareup.picasso.Picasso;
@@ -145,7 +146,7 @@ public class UserInfo extends AppCompatActivity {
     void init(){
         findViewById();
         buttonHandler();
-        CreateConnection conn = new CreateConnection(getString(R.string.token));
+        CreateConnection conn = new CreateConnection(SaveSharedPreference.getPrefToken(this));
         placeHolder = conn.CreatePlaceHolder();
     }
 

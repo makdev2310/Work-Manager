@@ -51,7 +51,9 @@ public interface PlaceHolder {
     @PUT("api/users/profile")
     Call<Void> updateProfile(
             @Field("fullname") String fullname,
-            @Field("phoneNumber") String phoneNumber,
-            @Field("dob") String dob
+            @Field("phoneNumber") String phoneNumber, @Field("dob") String dob
     );
+
+    @GET("api/payrolls/mypayroll")
+    Call<List<Payroll>> getMyPayroll();
 }

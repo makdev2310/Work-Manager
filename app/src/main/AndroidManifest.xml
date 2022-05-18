@@ -5,13 +5,13 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.WorkManager">
+        android:theme="@style/Theme.WorkManager"
+        android:dataExtractionRules="@xml/data_extraction_rules">
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -29,7 +29,7 @@
         <activity android:name="Activities.User.UserInfo"/>
         <activity android:name="SignIn_SignUp.LoginActivity"/>
         <activity android:name="SignIn_SignUp.CreateNewAccount"/>
-
+        <activity android:name="Activities.Payroll.MyPayroll"/>
 
         <service android:name="Services.PushNotificationService"
             android:enabled="true"
