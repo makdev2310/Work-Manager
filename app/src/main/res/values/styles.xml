@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="g_i">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#00E109</item>
+    </style>
+</resources>
