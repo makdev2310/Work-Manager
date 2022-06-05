@@ -1,25 +1,36 @@
 package Models;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
 
 public class Dayoff {
     String _id;
+    Boolean isApproved ;
+    String reason;
+    static class Period{
+        Date from;
+        Date to;
+
+        public Period(String from, String to) throws ParseException {
+            this.from = new SimpleDateFormat("dd-MM-yyyy").parse(from);
+            this.to = new SimpleDateFormat("dd-MM-yyyy").parse(to);
+        }
+    }
+    Period period;
+
+
+
+    public Dayoff(String reason, Boolean isApproved, Period period){
+        this.isApproved=isApproved;
+        this.period=period;
+        this.reason=reason;
+
+    }
 
     public String get_id() {
         return _id;
-    }
-
-    Boolean isApproved ;
-    String reason;
-    Date create_at;
-
-
-
-    public Dayoff(String reason, Boolean isApproved, Date  create_at){
-        this.isApproved=isApproved;
-        this.create_at=create_at;
-        this.reason=reason;
-
     }
 
     public Boolean getApproved() {
@@ -30,7 +41,9 @@ public class Dayoff {
         return reason;
     }
 
-    public Date getCreate_at() {
-        return create_at;
+    public Date getDateFrom() {
+        return period.from;
     }
+
+    public Date getDateTo() { return period.to;}
 }

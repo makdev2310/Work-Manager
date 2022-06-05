@@ -59,11 +59,8 @@
         <TextView
         android:id="@+id/tvsource1"
         android:layout_width="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_height="wrap_content"
         android:text="Từ: "
-
-        android:gravity="center"
         android:textSize="20sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="@id/tvTitle1"
@@ -72,12 +69,8 @@
 
     <TextView
         android:id="@+id/tvsourceAnswer1"
-        android:layout_width="231dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
-        android:gravity="start"
-        android:text="Từ: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -89,7 +82,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lý do: "
-        android:layout_marginTop="5dp"
         android:gravity="center"
         android:textSize="20sp"
         android:textStyle="normal"
@@ -99,11 +91,8 @@
 
     <TextView
         android:id="@+id/reason"
-        android:layout_width="298dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:text="Lý do: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -125,30 +114,33 @@
 
     <TextView
         android:id="@+id/tvabsencedateAnswer1"
-        android:layout_width="221dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:text="Ngày xin nghỉ: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/tvabsencedate1"
         app:layout_constraintStart_toEndOf="@+id/tvabsencedate1"
-        app:layout_constraintTop_toTopOf="@+id/tvabsencedate1"  />
+        />
 
     <TextView
         android:id="@+id/datetime"
-        android:layout_width="357dp"
-        android:layout_height="29dp"
-
-        android:layout_marginTop="5dp"
-        android:text="Ngày xin nghỉ: "
-        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ngày làm lại: "
         android:textSize="20sp"
-
         app:layout_constraintStart_toStartOf="@id/tvabsencedate1"
         app:layout_constraintTop_toBottomOf="@id/tvabsencedate1" />
+
+    <TextView
+        android:id="@+id/datetimeAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/tvabsencedateAnswer1"
+        app:layout_constraintStart_toEndOf="@+id/datetime"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

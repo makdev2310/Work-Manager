@@ -120,8 +120,10 @@ public class xacnhan_xinnghi extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             Dayoff dayoff  = dayoffs.get(position);
+            holder.id.setText(dayoff.get_id());
             holder.reason.setText(dayoff.getReason());
-            holder.datetime.setText(new SimpleDateFormat("dd-MM-yyyy hh:mm:ss").format(dayoff.getCreate_at()));
+            holder.from.setText(new SimpleDateFormat("dd-MM-yyyy").format(dayoff.getDateFrom()));
+            holder.to.setText(new SimpleDateFormat("dd-MM-yyyy").format(dayoff.getDateTo()));
             holder.btnApprove.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -136,13 +138,17 @@ public class xacnhan_xinnghi extends AppCompatActivity {
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder {
-            TextView datetime;
+            TextView from;
+            TextView to;
             TextView reason;
+            TextView id;
             ImageButton btnApprove;
 
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
-                datetime = itemView.findViewById(R.id.datetime);
+                id = itemView.findViewById(R.id.tvsourceAnswer1);
+                from = itemView.findViewById(R.id.tvabsencedateAnswer1);
+                to = itemView.findViewById(R.id.datetimeAnswer);
                 reason = itemView.findViewById(R.id.reason);
                 btnApprove = itemView.findViewById(R.id.dayoff_item_Approve);
             }
