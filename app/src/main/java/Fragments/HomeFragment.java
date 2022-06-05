@@ -27,6 +27,7 @@ import org.w3c.dom.Text;
 import Activities.Lichlamviecc;
 import Activities.Payroll.PayrollCal;
 import Activities.gop_y;
+import Activities.xacnhan_xinnghi;
 import DayOff.DayOffConfirm;
 import DayOff.SendDayoff;
 import SignIn_SignUp.SaveSharedPreference;
@@ -109,7 +110,7 @@ public class HomeFragment extends Fragment {
                 if(!isBoss){
                     intent = new Intent(getContext(), SendDayoff.class);
                 }else{
-                    intent = new Intent(getContext(), DayOffConfirm.class);
+                    intent = new Intent(getContext(), xacnhan_xinnghi.class);
                 }
                 startActivity(intent);
             }

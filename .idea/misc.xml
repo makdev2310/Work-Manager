@@ -39,9 +39,11 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2256525675455728" />
         <entry key="app/src/main/res/layout/activity_thongbao.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/activity_thongbaoadmin.xml" value="0.2078125" />
+        <entry key="app/src/main/res/layout/activity_xacnhan_xinnghi.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/activity_xinnghi.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/calendar.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/day_off_confirm.xml" value="0.37395833333333334" />
+        <entry key="app/src/main/res/layout/dayoff_item.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/edit_info.xml" value="0.45" />
         <entry key="app/src/main/res/layout/fragment_about.xml" value="0.2847447713216146" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3880208333333333" />

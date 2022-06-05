@@ -3,6 +3,11 @@ package Models;
 import java.util.Date;
 
 public class Dayoff {
+    String _id;
+
+    public String get_id() {
+        return _id;
+    }
 
     Boolean isApproved ;
     String reason;
@@ -16,14 +21,16 @@ public class Dayoff {
         this.reason=reason;
 
     }
-    Boolean getIsApproved(){
-        return this.isApproved;
-    }
-    String getReason(){
-        return this.reason;
-    }
-    Date getcreate_at(){
-        return this.create_at;
+
+    public Boolean getApproved() {
+        return isApproved;
     }
 
+    public String getReason() {
+        return reason;
+    }
+
+    public Date getCreate_at() {
+        return create_at;
+    }
 }

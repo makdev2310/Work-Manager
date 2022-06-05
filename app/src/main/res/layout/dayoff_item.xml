@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:id="@+id/yellowcircle2"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/yellowcircle"
+        />
+    <TextView
+        android:id="@+id/tvTitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Tiêu đề"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toEndOf="@id/yellowcircle2"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageButton
+        android:id="@+id/dayoff_item_Approve"
+        android:layout_width="49dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="184dp"
+        android:background="@drawable/elip_backround"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/check"
+
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitle1"
+        app:layout_constraintStart_toEndOf="@+id/tvTitle1"
+        app:layout_constraintTop_toTopOf="@+id/tvTitle1"
+        app:layout_constraintVertical_bias="0.0" />
+    <ImageButton
+        android:id="@+id/Button23"
+        android:layout_width="49dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="240dp"
+        android:background="@drawable/elip_backround"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_baseline_cancel_24"
+
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitle1"
+        app:layout_constraintStart_toEndOf="@+id/tvTitle1"
+        app:layout_constraintTop_toTopOf="@+id/tvTitle1"
+      app:layout_constraintVertical_bias="0.0" />
+
+
+        <TextView
+        android:id="@+id/tvsource1"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:text="Từ: "
+
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="@id/tvTitle1"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle1"
+        />
+
+    <TextView
+        android:id="@+id/tvsourceAnswer1"
+        android:layout_width="231dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:gravity="start"
+        android:text="Từ: "
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/tvsource1"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle1" />
+
+    <TextView
+        android:id="@+id/tvreason1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lý do: "
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="@id/tvsource1"
+        app:layout_constraintTop_toBottomOf="@id/tvsourceAnswer1"
+        />
+
+    <TextView
+        android:id="@+id/reason"
+        android:layout_width="298dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="Lý do: "
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/tvreason1"
+        app:layout_constraintTop_toBottomOf="@id/tvsourceAnswer1" />
+
+    <TextView
+        android:id="@+id/tvabsencedate1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ngày xin nghỉ: "
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="@id/tvreason1"
+        app:layout_constraintTop_toBottomOf="@id/reason"
+        />
+
+    <TextView
+        android:id="@+id/tvabsencedateAnswer1"
+        android:layout_width="221dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:text="Ngày xin nghỉ: "
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvabsencedate1"
+        app:layout_constraintStart_toEndOf="@+id/tvabsencedate1"
+        app:layout_constraintTop_toTopOf="@+id/tvabsencedate1"  />
+
+    <TextView
+        android:id="@+id/datetime"
+        android:layout_width="357dp"
+        android:layout_height="29dp"
+
+        android:layout_marginTop="5dp"
+        android:text="Ngày xin nghỉ: "
+        android:textColor="@color/black"
+        android:textSize="20sp"
+
+        app:layout_constraintStart_toStartOf="@id/tvabsencedate1"
+        app:layout_constraintTop_toBottomOf="@id/tvabsencedate1" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

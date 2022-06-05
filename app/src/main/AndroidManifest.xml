@@ -34,7 +34,7 @@
         <activity android:name="SignIn_SignUp.CreateNewAccount"/>
         <activity android:name="Activities.Payroll.MyPayroll"/>
         <activity android:name="DayOff.SendDayoff"/>
-
+        <activity android:name="Activities.xacnhan_xinnghi"/>
         <service android:name="Services.PushNotificationService"
             android:enabled="true"
             android:exported="true">
