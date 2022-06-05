@@ -83,7 +83,6 @@ public class AdminNotification extends AppCompatActivity {
 
         btn_lammoi = findViewById(R.id.thongbao_reload);
         btn_xacnhan = findViewById(R.id.thongbao_send);
-        btn_lichsu = findViewById(R.id.xinnghi_xemxinnghi);
 
         edit_text = (EditText)findViewById(R.id.edit_text);
         edit_text2 = (EditText)findViewById(R.id.edit_text2);

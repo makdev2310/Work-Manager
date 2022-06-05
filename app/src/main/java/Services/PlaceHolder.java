@@ -4,6 +4,7 @@ import java.util.List;
 
 import Activities.Notification.AdminNotification;
 import Activities.Payroll.PayrollCheck;
+import DayOff.SendDayoff;
 import Models.Dayoff;
 import Models.Notification;
 import Models.Payroll;
@@ -68,6 +69,9 @@ public interface PlaceHolder {
 
     @POST("/api/notifications")
     Call<Void> sendNotification(@Body AdminNotification.notifications  notification);
+
+    @POST("/api/dayoffs")
+    Call<Void> sendDayoff(@Body SendDayoff.Dayoff  dayoff);
 
 /*    @POST("/api/feedback")
     Call<Void> sendFeedback(@Body gop_y.feedbacks  feedback);*/

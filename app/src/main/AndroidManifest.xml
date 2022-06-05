@@ -14,7 +14,6 @@
         android:dataExtractionRules="@xml/data_extraction_rules">
         <activity android:name="Activities.Lichlamviecc"/>
         <activity android:name="Activities.gop_y"/>
-        <activity android:name="Activities.xinnghi"/>
 
         <activity
             android:name=".MainActivity"
@@ -34,6 +33,7 @@
         <activity android:name="SignIn_SignUp.LoginActivity"/>
         <activity android:name="SignIn_SignUp.CreateNewAccount"/>
         <activity android:name="Activities.Payroll.MyPayroll"/>
+        <activity android:name="DayOff.SendDayoff"/>
 
         <service android:name="Services.PushNotificationService"
             android:enabled="true"

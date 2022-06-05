@@ -25,7 +25,7 @@ import com.example.workmanager.R;
 import Activities.Lichlamviecc;
 import Activities.Payroll.PayrollCal;
 import Activities.gop_y;
-import Activities.xinnghi;
+import DayOff.SendDayoff;
 import SignIn_SignUp.SaveSharedPreference;
 
 public class HomeFragment extends Fragment {
@@ -94,7 +94,7 @@ public class HomeFragment extends Fragment {
         constraintDayOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), xinnghi.class);
+                Intent intent = new Intent(getContext(), SendDayoff.class);
                 startActivity(intent);
             }
         });

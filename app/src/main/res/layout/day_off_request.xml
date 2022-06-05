@@ -79,120 +79,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
 
-                app:layout_constraintTop_toBottomOf="@+id/cardviewLeaveAbsence">
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp">
-                    <TextView
-                        android:id="@+id/tvid"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Mã NV: "
-                        android:textStyle="normal"
-                        android:textSize="20sp"
-                        android:layout_marginStart="30dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
-                    <EditText
-                        android:id="@+id/etid"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/tvid"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        />
-                    <TextView
-                        android:id="@+id/tvname"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Tên: "
-                        android:textStyle="normal"
-                        android:textSize="20sp"
-                        android:layout_marginStart="30dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/etid"/>
-                    <EditText
-                        android:id="@+id/etname"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/tvname"
-                        app:layout_constraintTop_toBottomOf="@id/etid"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        />
-                    <TextView
-                        android:id="@+id/tvdepartment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Phòng ban: "
-                        android:textStyle="normal"
-                        android:textSize="20sp"
-                        android:layout_marginStart="30dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/etname"/>
-                    <EditText
-                        android:id="@+id/etdepartment"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/tvdepartment"
-                        app:layout_constraintTop_toBottomOf="@id/etname"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        />
-                    <TextView
-                        android:id="@+id/tvposition"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Chức vụ: "
-                        android:textStyle="normal"
-                        android:textSize="20sp"
-                        android:layout_marginStart="30dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/etdepartment"/>
-                    <EditText
-                        android:id="@+id/etposition"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/tvposition"
-                        app:layout_constraintTop_toBottomOf="@id/etdepartment"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        />
-                    <TextView
-                        android:id="@+id/tvabsencetype"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Loại nghỉ phép: "
-                        android:textStyle="normal"
-                        android:textSize="20sp"
-                        android:layout_marginStart="30dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/etposition"/>
-                    <EditText
-                        android:id="@+id/etabsencetype"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/tvabsencetype"
-                        app:layout_constraintTop_toBottomOf="@id/etposition"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
+                app:layout_constraintTop_toBottomOf="@+id/cardviewLeaveAbsence"/>
 
             <TextView
                 android:id="@+id/tvdetail"
@@ -230,7 +117,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Ngày nghỉ: "
+                        android:text="Ngày bắt đầu nghỉ: "
                         android:textStyle="normal"
                         android:textSize="20sp"
                         android:layout_marginStart="30dp"
@@ -252,7 +139,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Thời gian nghỉ: "
+                        android:text="Ngày đi làm lại: "
                         android:textStyle="normal"
                         android:textSize="20sp"
                         android:layout_marginStart="30dp"
@@ -262,77 +149,36 @@
                         android:id="@+id/ettime"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:inputType="time"
+                        android:inputType="date"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/tvtime"
                         app:layout_constraintTop_toBottomOf="@id/etdayoff"
                         android:textStyle="bold"
                         android:textSize="20sp"
                         />
-                    <TextView
-                        android:id="@+id/tvnumberofdayoff"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Tổng số ngày nghỉ: "
-                        android:textStyle="normal"
-                        android:inputType="number"
-                        android:textSize="20sp"
-                        android:layout_marginStart="30dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/ettime"/>
-                    <EditText
-                        android:id="@+id/etnumberofdayoff"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/tvnumberofdayoff"
-                        app:layout_constraintTop_toBottomOf="@id/ettime"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        />
-                    <TextView
-                        android:id="@+id/tvshift"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Ca làm việc: "
-                        android:textStyle="normal"
-                        android:textSize="20sp"
-                        android:layout_marginStart="30dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/etnumberofdayoff"/>
-                    <EditText
-                        android:id="@+id/etshift"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/tvshift"
-                        app:layout_constraintTop_toBottomOf="@id/etnumberofdayoff"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        />
+
                     <TextView
                         android:id="@+id/tvreason"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="4dp"
                         android:text="Lý do/Ghi chú: "
-                        android:textStyle="normal"
                         android:textSize="20sp"
-                        android:layout_marginStart="30dp"
+                        android:textStyle="normal"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/etshift"/>
+                        app:layout_constraintTop_toBottomOf="@id/ettime" />
+
                     <EditText
                         android:id="@+id/etreason"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/tvreason"
-                        app:layout_constraintTop_toBottomOf="@id/etshift"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        />
+                        app:layout_constraintTop_toBottomOf="@+id/ettime" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
