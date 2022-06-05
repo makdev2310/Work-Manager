@@ -18,6 +18,12 @@
         <entry key="..\:/Work-Manager/app/src/main/res/layout/day_off_confirm.xml" value="0.17552083333333332" />
         <entry key="..\:/Work-Manager/app/src/main/res/layout/day_off_request.xml" value="0.17552083333333332" />
         <entry key="..\:/Work-Manager/app/src/main/res/layout/dayoff_info.xml" value="0.17552083333333332" />
+        <entry key="app/src/main/res/drawable-v24/backround.xml" value="0.1565" />
+        <entry key="app/src/main/res/drawable-v24/backroundhoilai1.xml" value="0.1565" />
+        <entry key="app/src/main/res/drawable-v24/backroundhoilai2.xml" value="0.1565" />
+        <entry key="app/src/main/res/drawable-v24/backroundhoilai3.xml" value="0.1565" />
+        <entry key="app/src/main/res/drawable-v24/ic_baseline_exit_to_app_24.xml" value="0.1565" />
+        <entry key="app/src/main/res/drawable-v24/ic_baseline_format_list_bulleted_24.xml" value="0.228" />
         <entry key="app/src/main/res/drawable/ic_check.xml" value="0.1475" />
         <entry key="app/src/main/res/drawable/ic_creditcard.xml" value="0.2155" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.1" />
@@ -25,19 +31,27 @@
         <entry key="app/src/main/res/drawable/ic_notification.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_user.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/activity_gop_y.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/activity_hoilaiyeucau.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/activity_log_in.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2256525675455728" />
+        <entry key="app/src/main/res/layout/activity_thongbao.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/activity_thongbaoadmin.xml" value="0.2078125" />
+        <entry key="app/src/main/res/layout/activity_xinnghi.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/calendar.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/edit_info.xml" value="0.45" />
         <entry key="app/src/main/res/layout/fragment_about.xml" value="0.2847447713216146" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3880208333333333" />
-        <entry key="app/src/main/res/layout/fragment_notification.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/fragment_notification.xml" value="0.3532219570405728" />
         <entry key="app/src/main/res/layout/item_user.xml" value="0.2966013590494791" />
+        <entry key="app/src/main/res/layout/notications_item.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/payroll_cal.xml" value="0.3266896565755208" />
         <entry key="app/src/main/res/layout/payroll_check.xml" value="0.1890625" />
         <entry key="app/src/main/res/layout/payroll_confirm.xml" value="0.24199829101562498" />
         <entry key="app/src/main/res/layout/payroll_detail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/round_item_staff.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/round_item_staff_avatar.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/temp.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/user_info.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1" />
       </map>

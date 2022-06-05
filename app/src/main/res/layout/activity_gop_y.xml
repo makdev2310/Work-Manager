@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Thongbaoadmin">
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/backround"
+        android:drawableLeft="@drawable/ic_baseline_add_circle_outline_24"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+
+        />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="166dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="16dp"
+        android:text="Tiêu đê"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+
+        />
+
+    <EditText
+        android:id="@+id/edit_text2"
+        android:layout_width="match_parent"
+        android:layout_height="322dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/backround"
+        android:ems="10"
+        android:gravity="top|left"
+        android:inputType="textMultiLine|text"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+
+        />
+
+
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="166dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="110dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="16dp"
+        android:text="Nội dung"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+
+        />
+    <LinearLayout
+        android:id="@+id/payrollcal_relativeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="500dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <Button
+            android:id="@+id/gopy_reload"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/black"
+
+
+            android:text="LÀM MỚI"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+
+
+            />
+
+        <Button
+            android:id="@+id/gopy_send"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/green"
+
+            android:text="GỬI"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

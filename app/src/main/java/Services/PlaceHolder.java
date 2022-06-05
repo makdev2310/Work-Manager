@@ -2,7 +2,10 @@ package Services;
 
 import java.util.List;
 
+import Activities.Notification.AdminNotification;
 import Activities.Payroll.PayrollCheck;
+import Models.Dayoff;
+import Models.Notification;
 import Models.Payroll;
 import Models.User;
 import SignIn_SignUp.CreateNewAccount;
@@ -56,4 +59,16 @@ public interface PlaceHolder {
 
     @GET("api/payrolls/mypayroll")
     Call<List<Payroll>> getMyPayroll();
+
+    @GET("/api/notifications")
+    Call<List<Notification>> getmynotifications();
+
+    @GET("/api/dayoffs")
+    Call<List<Dayoff>> getmydayoff();
+
+    @POST("/api/notifications")
+    Call<Void> sendNotification(@Body AdminNotification.notifications  notification);
+
+/*    @POST("/api/feedback")
+    Call<Void> sendFeedback(@Body gop_y.feedbacks  feedback);*/
 }

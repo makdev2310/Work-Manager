@@ -100,6 +100,7 @@ public class PayrollCheck extends AppCompatActivity {
             public void onResponse(@NonNull Call<List<Payroll>> call, @NonNull Response<List<Payroll>> response) {
                 if(!response.isSuccessful()) {
                     Toast.makeText(PayrollCheck.this, "code: "+ response.code(), Toast.LENGTH_SHORT).show();
+                    Log.d("ngu", response.message());
                     return;
                 }
                 ArrayList<Payroll> temp = (ArrayList<Payroll>) response.body();
