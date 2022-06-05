@@ -32,7 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/CalendarView" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/home_Payroll"
+        android:id="@+id/calendar"
         android:layout_width="407dp"
         android:layout_height="168dp"
         android:layout_marginTop="376dp"
@@ -46,7 +46,7 @@
             android:id="@+id/home_ivPayroll0"
             android:layout_width="160dp"
             android:layout_height="29dp"
-            android:layout_below="@+id/home_Payroll"
+            android:layout_below="@+id/calendar"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"

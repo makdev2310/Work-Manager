@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                         UserInfo user = (UserInfo) response.body();
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
-                        SaveSharedPreference.setUser(getApplicationContext(), user.getFullname(), user.getEmail(), user.getAvatar(), user.get_id(), user.getRole(), user.getToken());
+                        SaveSharedPreference.setUser(getApplicationContext(), user.getFullname(), user.getEmail(), user.getAvatar(), user.get_id(), user.getRole(), user.getToken(), user.isBoss());
                         ConstraintLayout loading = findViewById(R.id.loading);
                         loading.setVisibility(View.VISIBLE);
                         finish();

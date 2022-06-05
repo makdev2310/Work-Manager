@@ -24,7 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name="DayOff.DayOffConfirm"/>
         <activity android:name="Activities.Payroll.PayrollCal"/>
         <activity android:name="Activities.Payroll.PayrollCheck"/>
         <activity android:name="Activities.Payroll.PayrollConfirm"/>

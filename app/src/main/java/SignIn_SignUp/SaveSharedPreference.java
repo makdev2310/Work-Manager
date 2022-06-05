@@ -14,12 +14,13 @@ public class SaveSharedPreference {
     static final String PREF_AVATAR= "avatar";
     static final String PREF_TOKEN= "token";
     static final String PREF_ID= "_id";
+    static final String PREF_BOSS = "boss";
 
     static SharedPreferences getSharedPreferences(Context ctx){
         return PreferenceManager.getDefaultSharedPreferences(ctx);
     }
 
-    public static void setUser(Context ctx, String userName, String email, String avatar, String _id, String role, String token) {
+    public static void setUser(Context ctx, String userName, String email, String avatar, String _id, String role, String token, boolean isBoss) {
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
         editor.putString(PREF_USER_NAME, userName);
         editor.putString(PREF_EMAIL, email);
@@ -27,6 +28,7 @@ public class SaveSharedPreference {
         editor.putString(PREF_AVATAR, avatar);
         editor.putString(PREF_TOKEN, token);
         editor.putString(PREF_ID, _id);
+        editor.putBoolean(PREF_BOSS, isBoss);
         editor.commit();
     }
 
@@ -59,5 +61,8 @@ public class SaveSharedPreference {
     }
     public static String getPrefToken(Context ctx) {
         return getSharedPreferences(ctx).getString(PREF_TOKEN, "");
+    }
+    public static boolean getPrefIsBoss(Context ctx) {
+        return getSharedPreferences(ctx).getBoolean(PREF_BOSS, false);
     }
 }

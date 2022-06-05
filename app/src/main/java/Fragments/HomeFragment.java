@@ -22,9 +22,12 @@ import androidx.fragment.app.Fragment;
 
 import com.example.workmanager.R;
 
+import org.w3c.dom.Text;
+
 import Activities.Lichlamviecc;
 import Activities.Payroll.PayrollCal;
 import Activities.gop_y;
+import DayOff.DayOffConfirm;
 import DayOff.SendDayoff;
 import SignIn_SignUp.SaveSharedPreference;
 
@@ -35,9 +38,11 @@ public class HomeFragment extends Fragment {
     Chronometer chronometerCustomFormat;
     boolean isSetTime = false;
     long time = 0;
+    boolean isBoss;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        isBoss = SaveSharedPreference.getPrefIsBoss(getContext());
     }
 
     @Nullable
@@ -63,6 +68,7 @@ public class HomeFragment extends Fragment {
                 onChronometerTickHandler();
             }
         });
+
     }
     void findViewById(View view){
         constraintPayroll = view.findViewById(R.id.home_Payroll);
@@ -72,6 +78,11 @@ public class HomeFragment extends Fragment {
         btnTimeSet = view.findViewById(R.id.home_TimeSet);
         username = view.findViewById(R.id.home_username);
         chronometerCustomFormat = (Chronometer) view.findViewById(R.id.Chronometer);
+        if(!isBoss){
+            constraintPayroll.setVisibility(View.GONE);
+        }else{
+            ((TextView)view.findViewById(R.id.home_tvDayOff)).setText("Dyệt đơn xin nghỉ");
+        }
     }
 
     void btnHandler(){
@@ -94,7 +105,12 @@ public class HomeFragment extends Fragment {
         constraintDayOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), SendDayoff.class);
+                Intent intent;
+                if(!isBoss){
+                    intent = new Intent(getContext(), SendDayoff.class);
+                }else{
+                    intent = new Intent(getContext(), DayOffConfirm.class);
+                }
                 startActivity(intent);
             }
         });
