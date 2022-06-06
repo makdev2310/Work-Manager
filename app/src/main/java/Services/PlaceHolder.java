@@ -55,7 +55,8 @@ public interface PlaceHolder {
     @PUT("api/users/profile")
     Call<Void> updateProfile(
             @Field("fullname") String fullname,
-            @Field("phoneNumber") String phoneNumber, @Field("dob") String dob
+            @Field("phoneNumber") String phoneNumber,
+            @Field("dob") String dob
     );
 
     @GET("api/payrolls/mypayroll")
@@ -71,7 +72,11 @@ public interface PlaceHolder {
     Call<Void> sendNotification(@Body AdminNotification.notifications  notification);
 
     @POST("/api/dayoffs")
-    Call<Void> sendDayoff(@Body SendDayoff.Dayoff  dayoff);
+    Call<Void> sendDayoff(@Body SendDayoff.Dayoff dayoff);
+
+    @FormUrlEncoded
+    @POST("/api/users/refreshtoken")
+    Call<RefreshToken.ResponseToken> refreshToken(@Field("refreshToken") String refreshToken);
 
 /*    @POST("/api/feedback")
     Call<Void> sendFeedback(@Body gop_y.feedbacks  feedback);*/

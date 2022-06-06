@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                         UserInfo user = (UserInfo) response.body();
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
-                        SaveSharedPreference.setUser(getApplicationContext(), user.getFullname(), user.getEmail(), user.getAvatar(), user.get_id(), user.getRole(), user.getToken(), user.isBoss());
+                        SaveSharedPreference.setUser(getApplicationContext(), user.getFullname(), user.getEmail(), user.getAvatar(), user.get_id(), user.getRole(), user.getToken(), user.isBoss(), user.getRefreshToken());
                         ConstraintLayout loading = findViewById(R.id.loading);
                         loading.setVisibility(View.VISIBLE);
                         finish();
@@ -92,12 +92,18 @@ public class LoginActivity extends AppCompatActivity {
 
     public class UserInfo extends User{
         String token;
-        public UserInfo(String username, String password, String email, String address, String cccd, String fullname, long phoneNumber, String role, int maxDateOff, Date dob, String gender, boolean isBoss, String avatar, Date create_at, String token) {
+        String refreshToken;
+        public UserInfo(String username, String password, String email, String address, String cccd, String fullname, long phoneNumber, String role, int maxDateOff, Date dob, String gender, boolean isBoss, String avatar, Date create_at, String token, String refreshToken) {
             super(username, password, email, address, cccd, fullname, phoneNumber, role, maxDateOff, dob, gender, isBoss, avatar, create_at);
             this.token = token;
+            this.refreshToken = refreshToken;
         }
         public String getToken() {
             return token;
+        }
+
+        public String getRefreshToken() {
+            return refreshToken;
         }
     }
     private void findViewById(){

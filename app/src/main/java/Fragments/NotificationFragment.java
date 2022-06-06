@@ -23,6 +23,7 @@ import java.util.List;
 import Models.Notification;
 import Services.CreateConnection;
 import Services.PlaceHolder;
+import Services.RefreshToken;
 import SignIn_SignUp.SaveSharedPreference;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -64,13 +65,16 @@ public class NotificationFragment extends Fragment {
             @Override
             public void onResponse(Call<List<Models.Notification>> call, Response<List<Notification>> response) {
                 if(!response.isSuccessful()){
-                    Toast.makeText(getContext(), "Something went wrong ", Toast.LENGTH_LONG).show();
+                    if(response.code() == 401){
+                        (new RefreshToken(getContext())).RefreshingToken();
+                    }else{
+                        Toast.makeText(getContext(), "Something went wrong ", Toast.LENGTH_LONG).show();
+                    }
                     return;
                 }
                 ArrayList<Models.Notification> temp = (ArrayList<Models.Notification>) response.body();
                 noti.addAll(temp);
                 adapter.notifyDataSetChanged();
-
             }
 
             @Override

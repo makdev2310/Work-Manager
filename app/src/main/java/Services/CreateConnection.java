@@ -27,6 +27,13 @@ public class CreateConnection {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
+    public CreateConnection(){
+        String base_Url = "https://dkhoa-work-lovers-2.herokuapp.com/";
+        retrofit = new Retrofit.Builder()
+                .baseUrl(base_Url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+    }
 
     public PlaceHolder CreatePlaceHolder(){
         return retrofit.create(PlaceHolder.class);
