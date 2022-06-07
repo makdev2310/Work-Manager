@@ -93,14 +93,13 @@ public class PayrollCheck extends AppCompatActivity {
             IDs.add(user.get_id());
         }
         //get payroll by userID
-        PayrollInfoNeeded data = new PayrollInfoNeeded(IDs, new Time("2022-04-01", "2022-05-01"));
+        PayrollInfoNeeded data = new PayrollInfoNeeded(IDs, new Time("2022-05-01", "2022-06-01"));
         Call<List<Payroll>> call = placeHolder.createPayrolls(data);
         call.enqueue(new Callback<List<Payroll>>(){
             @Override
             public void onResponse(@NonNull Call<List<Payroll>> call, @NonNull Response<List<Payroll>> response) {
                 if(!response.isSuccessful()) {
                     Toast.makeText(PayrollCheck.this, "code: "+ response.code(), Toast.LENGTH_SHORT).show();
-                    Log.d("ngu", response.message());
                     return;
                 }
                 ArrayList<Payroll> temp = (ArrayList<Payroll>) response.body();
@@ -145,7 +144,6 @@ public class PayrollCheck extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<Void> call, Throwable t) {
                     Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
-                    Log.d("response", t.getMessage());
                 }
             });
         });

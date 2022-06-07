@@ -25,6 +25,7 @@ import com.example.workmanager.R;
 import org.w3c.dom.Text;
 
 import Activities.Lichlamviecc;
+import Activities.Notification.AdminNotification;
 import Activities.Payroll.PayrollCal;
 import Activities.gop_y;
 import Activities.xacnhan_xinnghi;
@@ -83,6 +84,8 @@ public class HomeFragment extends Fragment {
             constraintPayroll.setVisibility(View.GONE);
         }else{
             ((TextView)view.findViewById(R.id.home_tvDayOff)).setText("Dyệt đơn xin nghỉ");
+            ((TextView)view.findViewById(R.id.home_tvFeedback)).setText("Tạo thông báo");
+
         }
     }
 
@@ -98,7 +101,12 @@ public class HomeFragment extends Fragment {
         constraintFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), gop_y.class);
+                Intent intent;
+                if(!isBoss){
+                    intent = new Intent(getContext(), gop_y.class);
+                }else{
+                    intent = new Intent(getContext(), AdminNotification.class);
+                }
                 startActivity(intent);
             }
         });
