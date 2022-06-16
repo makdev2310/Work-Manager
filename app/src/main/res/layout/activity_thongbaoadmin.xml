@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/edit_text"
+        android:id="@+id/et_title"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginTop="54dp"
@@ -44,7 +44,7 @@
 
 
     <EditText
-        android:id="@+id/edit_text2"
+        android:id="@+id/et_content"
         android:layout_width="match_parent"
         android:layout_height="322dp"
         android:layout_marginStart="10dp"

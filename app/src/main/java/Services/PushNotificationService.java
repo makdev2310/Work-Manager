@@ -60,7 +60,6 @@ public class PushNotificationService extends FirebaseMessagingService {
                     e.printStackTrace();
                 }
             }
-
             PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
             String channelId = message.getNotification().getChannelId();
             Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);

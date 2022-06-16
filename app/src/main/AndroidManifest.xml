@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WorkManager"
+        android:usesCleartextTraffic="true"
         android:dataExtractionRules="@xml/data_extraction_rules">
         <activity android:name="Activities.Lichlamviecc"/>
         <activity android:name="Activities.gop_y"/>
@@ -34,6 +35,7 @@
         <activity android:name="SignIn_SignUp.CreateNewAccount"/>
         <activity android:name="Activities.Payroll.MyPayroll"/>
         <activity android:name="DayOff.SendDayoff"/>
+        <activity android:name="Activities.Notification.AdminNotification"/>
         <activity android:name="Activities.xacnhan_xinnghi"/>
         <service android:name="Services.PushNotificationService"
             android:enabled="true"

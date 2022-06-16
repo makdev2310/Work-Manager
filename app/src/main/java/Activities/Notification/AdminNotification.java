@@ -2,6 +2,7 @@ package Activities.Notification;
 
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.workmanager.R;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import Services.CreateConnection;
 import Services.PlaceHolder;
@@ -59,23 +61,34 @@ public class AdminNotification extends AppCompatActivity {
 
     }
     void postData(){
-/*        Thongbaoadmin.notifications notifications =new notifications(edit_text2.getText().toString(),"high");*/
-        AdminNotification.notifications noti =new notifications(edit_text2.getText().toString(),"high",edit_text.getText().toString());
-        retrofit2.Call<Void> call = placeHolder.sendNotification(noti);
-        call.enqueue(new Callback<Void>() {
-            @Override
-            public void onResponse(retrofit2.Call<Void> call, Response<Void> response) {
-                if(!response.isSuccessful()){
-                    Toast.makeText(AdminNotification.this, "Something went wrong ", Toast.LENGTH_LONG).show();
-                    return;
+        String title = edit_text2.getText().toString();
+        String content = edit_text.getText().toString();
+
+        /*        Thongbaoadmin.notifications notifications =new notifications(edit_text2.getText().toString(),"high");*/
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
+            if (!task.isSuccessful()) {
+                return;
+            }
+
+            AdminNotification.notifications noti =new notifications(content,"high",title, task.getResult());
+            retrofit2.Call<Void> call = placeHolder.sendNotification(noti);
+            call.enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(retrofit2.Call<Void> call, Response<Void> response) {
+                    if(!response.isSuccessful()){
+                        Toast.makeText(AdminNotification.this, "Something went wrong ", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    Toast.makeText(AdminNotification.this, "Gửi thành công!", Toast.LENGTH_LONG).show();
+                    finish();
                 }
-                Toast.makeText(AdminNotification.this, "Gửi thành công!", Toast.LENGTH_LONG).show();
-            }
-            @Override
-            public void onFailure(retrofit2.Call<Void> call, Throwable t) {
-                Toast.makeText(AdminNotification.this, "Something went wrong!", Toast.LENGTH_LONG).show();
-            }
+                @Override
+                public void onFailure(retrofit2.Call<Void> call, Throwable t) {
+                    Toast.makeText(AdminNotification.this, "Something went wrong!", Toast.LENGTH_LONG).show();
+                }
+            });
         });
+
     }
 
 
@@ -84,8 +97,8 @@ public class AdminNotification extends AppCompatActivity {
         btn_lammoi = findViewById(R.id.thongbao_reload);
         btn_xacnhan = findViewById(R.id.thongbao_send);
 
-        edit_text = (EditText)findViewById(R.id.edit_text);
-        edit_text2 = (EditText)findViewById(R.id.edit_text2);
+        edit_text = (EditText)findViewById(R.id.et_title);
+        edit_text2 = (EditText)findViewById(R.id.et_content);
     }
 
     private void onClickHandler() {
@@ -225,10 +238,13 @@ public class AdminNotification extends AppCompatActivity {
         String priority;
         String content ;
         String title ;
-        public  notifications(String content,String priority ,String title){
+        String tokenDevice;
+
+        public  notifications(String content,String priority ,String title, String tokenDevice){
             this.content=content;
             this.priority=priority;
             this.title=title;
+            this.tokenDevice = tokenDevice;
         }
         String getContent(){
             return this.content;
