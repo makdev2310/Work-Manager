@@ -61,8 +61,8 @@ public class AdminNotification extends AppCompatActivity {
 
     }
     void postData(){
-        String title = edit_text2.getText().toString();
-        String content = edit_text.getText().toString();
+        String title = edit_text.getText().toString();
+        String content = edit_text2.getText().toString();
 
         /*        Thongbaoadmin.notifications notifications =new notifications(edit_text2.getText().toString(),"high");*/
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {

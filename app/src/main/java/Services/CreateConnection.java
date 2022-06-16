@@ -20,7 +20,7 @@ public class CreateConnection {
                 return chain.proceed(newRequest);
             }
         }).build();
-        String base_Url = "http://10.0.2.2:3000/";
+        String base_Url = "http://192.168.137.1:3000/";
         retrofit = new Retrofit.Builder()
                 .client(client)
                 .baseUrl(base_Url)
@@ -28,7 +28,7 @@ public class CreateConnection {
                 .build();
     }
     public CreateConnection(){
-        String base_Url = "http://10.0.2.2:3000/";
+        String base_Url = "http://192.168.137.1:3000/";
         retrofit = new Retrofit.Builder()
                 .baseUrl(base_Url)
                 .addConverterFactory(GsonConverterFactory.create())
